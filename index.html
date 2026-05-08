@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QA Personal Profile</title>
+    <title>Christopher Miller</title>
     <style>
         * {
             margin: 0;
@@ -171,6 +171,11 @@
         main p {
             font-size: 1.05rem;
             color: #3c3328;
+            margin-bottom: 14px;
+        }
+
+        main p:last-child {
+            margin-bottom: 0;
         }
 
         @media (max-width: 768px) {
@@ -190,19 +195,30 @@
             nav ul {
                 justify-content: center;
             }
+
+            nav li[style*="margin-left: auto"] {
+                display: none;
+            }
+
+            main {
+                margin: 24px 12px;
+                padding: 18px;
+            }
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="header-container">
             <div class="profile-image">
                 <img src="images/chris.jpg" alt="Christopher Miller profile picture">
             </div>
+
             <div class="profile-info">
                 <h1>Christopher Miller</h1>
                 <p>Quality Control Lead</p>
-                <p>Passionate about the pursuit of knowledge and continuous improvement</p>
+                <p>Manufacturing | Process Improvement | Web Development</p>
             </div>
         </div>
     </header>
@@ -223,57 +239,148 @@
     <main>
         <section id="welcome">
             <h2>Welcome</h2>
-            <p>Click one of the selections above to view the details for About, Skills, Experience, Portfolio, or Contact.</p>
+            <p>
+                Welcome to my personal profile website. Use the selections above to learn more about my background, skills, experience, current learning path, and long-term professional goals.
+            </p>
         </section>
+
         <section id="about" class="hidden">
             <h2>About</h2>
-            <p><strong>Current Role:</strong> I work in a custom area rug manufacturing plant as a Quality Control Lead, where I help manage quality expectations, production numbers, area workflow, an[...]
+
+            <p>
+                <strong>Current Role:</strong> I work in a custom area rug manufacturing plant as a Quality Control Lead, where I help manage quality expectations, production numbers, area workflow, and process consistency. My role involves working with management to improve operations through better quality assurance, production efficiency, cost-saving processes, and workflow improvements.
+            </p>
             
-            <p><strong>Web Development Goals:</strong> I am currently learning web development with the goal of helping small businesses build a stronger and more personalized online presence. I want [...]
+            <p>
+                <strong>Web Development Goals:</strong> I am currently learning web development with the goal of helping small businesses build a stronger and more personalized online presence. I want to create websites and digital tools that reflect each business's services, atmosphere, goals, and standards while helping owners reduce the burden of managing operations, customer communication, marketing, sales, scheduling, and growth all at once.
+            </p>
             
-            <p><strong>Long-Term Vision:</strong> As I continue growing in web and software development, I hope to build systems that help businesses track finances, sales, supply costs, employee cost[...]
+            <p>
+                <strong>Long-Term Vision:</strong> As I continue growing in web and software development, I hope to build systems that help businesses track finances, sales, supply costs, employee costs, production numbers, and other important operational information. Long term, I am working toward building my own business focused on helping other businesses grow, improve, and operate more efficiently.
+            </p>
             
-            <p><strong>Personal Philosophy:</strong> I have a strong interest in history, especially ancient battles, military tactics, and geopolitical events. I enjoy learning how leadership, strate[...]
+            <p>
+                <strong>Personal Philosophy:</strong> I have a strong interest in history, especially ancient battles, military tactics, and geopolitical events. I enjoy learning how leadership, strategy, and decision-making shaped major outcomes throughout history. I consider myself someone who is always learning, always improving, and always looking for ways to build better habits, sharpen my mindset, and grow in every area of life.
+            </p>
         </section>
+
         <section id="skills" class="hidden">
             <h2>Skills</h2>
-            <p><strong>Leadership & Team Management</strong> - Proven ability to lead quality initiatives, mentor team members, and foster collaborative environments that drive results.</p>
-            <p><strong>Process Improvement</strong> - Expertise in analyzing workflows, implementing efficiency enhancements, and reducing defects through strategic quality controls.</p>
-            <p><strong>Quality Assurance Strategy</strong> - Skilled in test planning, defect analysis, and documentation that ensures product reliability and compliance.</p>
-            <p><strong>Communication & Collaboration</strong> - Strong cross-functional communication skills, enabling effective partnerships with development and business teams.</p>
-            <p><strong>Continuous Learning</strong> - Committed to ongoing professional development, staying current with industry best practices and emerging technologies.</p>
+
+            <p>
+                <strong>Leadership & Team Management</strong> - Experience helping guide team workflow, support quality expectations, and maintain accountability in a production environment.
+            </p>
+
+            <p>
+                <strong>Process Improvement</strong> - Focused on analyzing workflows, identifying inefficiencies, supporting cost-saving improvements, and helping increase production consistency.
+            </p>
+
+            <p>
+                <strong>Quality Assurance</strong> - Skilled in inspecting work, maintaining standards, identifying defects, and supporting processes that improve final product quality.
+            </p>
+
+            <p>
+                <strong>Communication & Collaboration</strong> - Able to work with team members and management to solve problems, improve processes, and keep operations moving efficiently.
+            </p>
+
+            <p>
+                <strong>Continuous Learning</strong> - Actively building new skills in web development, software development, business operations, and digital strategy.
+            </p>
         </section>
+
         <section id="experience" class="hidden">
             <h2>Experience</h2>
-            <p><strong>Quality Control Lead</strong> - Demonstrated leadership in overseeing quality assurance processes, implementing rigorous testing protocols, and driving continuous improvement in[...]
-            <p><strong>Process Improvement Specialist</strong> - Led cross-functional teams in redesigning workflows, introducing automated quality checks, and mentoring junior staff on best practices[...]
-            <p><strong>Quality Assurance Analyst</strong> - Conducted comprehensive defect analysis, developed strategic test plans, and collaborated with development teams to ensure product reliabili[...]
-            <p><strong>Education</strong> - Autodidact with extensive self-directed learning in quality management, software testing methodologies, and leadership development through online courses, c[...]
+
+            <p>
+                <strong>Quality Control Lead</strong> - Help manage quality expectations, production numbers, workflow, and process consistency in a custom area rug manufacturing environment.
+            </p>
+
+            <p>
+                <strong>Process Improvement</strong> - Work with management to support improvements that help reduce unnecessary costs, improve production efficiency, and strengthen quality assurance.
+            </p>
+
+            <p>
+                <strong>Production Support</strong> - Assist in maintaining area workflow, identifying operational issues, and supporting better systems for daily production.
+            </p>
+
+            <p>
+                <strong>Self-Directed Learning</strong> - Currently learning web development, GitHub workflow, responsive design, and the foundations of building practical digital tools.
+            </p>
         </section>
+
         <section id="learning" class="hidden">
             <h2>Currently Learning</h2>
-            <p><strong>HTML and CSS Fundamentals</strong> - Building a strong foundation in web structure and styling to create responsive and visually appealing websites.</p>
-            <p><strong>Git and GitHub Workflow</strong> - Mastering version control, collaboration, and deploying projects to share work with teams and the world.</p>
-            <p><strong>Responsive Website Design</strong> - Developing skills to create websites that work seamlessly across all devices and screen sizes.</p>
-            <p><strong>Basic JavaScript</strong> - Learning programming logic and interactivity to create dynamic, user-friendly web applications.</p>
-            <p><strong>Building Portfolio Projects</strong> - Applying skills through real-world projects to showcase abilities and build professional experience.</p>
+
+            <p>
+                <strong>HTML and CSS Fundamentals</strong> - Building a strong foundation in website structure, styling, and clean page layouts.
+            </p>
+
+            <p>
+                <strong>Git and GitHub Workflow</strong> - Learning how to manage code, update projects, publish websites, and track changes properly.
+            </p>
+
+            <p>
+                <strong>Responsive Website Design</strong> - Developing websites that work smoothly across phones, tablets, laptops, and desktop screens.
+            </p>
+
+            <p>
+                <strong>Basic JavaScript</strong> - Learning how to add interactivity, logic, and better user experiences to websites.
+            </p>
+
+            <p>
+                <strong>Portfolio Projects</strong> - Building real projects to strengthen my skills and create examples of my work.
+            </p>
         </section>
+
         <section id="services" class="hidden">
             <h2>Services I'm Building Toward</h2>
-            <p><strong>Personal Websites</strong> - Creating professional online presences that showcase individuals' unique value and story in a clean, memorable way.</p>
-            <p><strong>Clean Profile and Portfolio Pages</strong> - Building polished, easy-to-navigate pages that help individuals display their work, skills, and achievements effectively.</p>
-            <p><strong>Small Business Interactive Websites</strong> - Designing engaging websites that help small businesses showcase their services, attract customers, and facilitate meaningful inter[...]
-            <p><strong>Digital Branding</strong> - Developing cohesive visual and digital identities that reflect a brand's values, personality, and mission.</p>
-            <p><strong>Basic Layouts and Content Structure</strong> - Creating intuitive page structures and information organization that guides users through a compelling brand story.</p>
-            <p><strong>Content Structure for New Brands</strong> - Strategically organizing information and messaging to help new businesses establish credibility, communicate their value, and build c[...]
+
+            <p>
+                <strong>Personal Websites</strong> - Creating professional online profiles that help individuals present their skills, story, and goals clearly.
+            </p>
+
+            <p>
+                <strong>Small Business Websites</strong> - Building clean, practical websites that help small businesses showcase their services, attract customers, and strengthen their online presence.
+            </p>
+
+            <p>
+                <strong>Digital Branding</strong> - Helping businesses present themselves with clearer messaging, better structure, and a more professional digital image.
+            </p>
+
+            <p>
+                <strong>Business Systems</strong> - Working toward building tools that help businesses track important information such as sales, finances, supply costs, employee costs, and production numbers.
+            </p>
+
+            <p>
+                <strong>Marketing Support</strong> - Building toward digital marketing strategies and campaigns that help businesses bring more attention to their products, services, and customer offers.
+            </p>
         </section>
+
         <section id="portfolio" class="hidden">
             <h2>Portfolio</h2>
-            <p>Coming soon...</p>
+
+            <p>
+                <strong>Personal Profile Website</strong> - A personal website built with HTML, CSS, and GitHub Pages to practice web development and create an online professional presence.
+            </p>
+
+            <p>
+                <strong>More Projects Coming Soon</strong> - Future projects will include small business landing pages, portfolio pages, menu designs, and practical tools for business operations.
+            </p>
         </section>
+
         <section id="contact" class="hidden">
             <h2>Contact</h2>
-            <p>Ready to discuss quality strategies, team goals, and career opportunities. Reach out to connect and collaborate.</p>
+
+            <p>
+                Interested in connecting, collaborating, or discussing future projects? Reach out to connect.
+            </p>
+
+            <p>
+                <strong>GitHub:</strong> 
+                <a href="https://github.com/christomills2003-sudo" target="_blank">
+                    github.com/christomills2003-sudo
+                </a>
+            </p>
         </section>
     </main>
 
