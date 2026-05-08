@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christopher Miller's Profile</title>
+    <title>QA Personal Profile</title>
     <style>
         * {
             margin: 0;
@@ -94,6 +94,10 @@
             margin: 10px;
         }
 
+        nav li[style*="margin-left: auto"] {
+            flex-grow: 1;
+        }
+
         nav a {
             display: block;
             padding: 14px 22px;
@@ -117,6 +121,22 @@
             border-color: #5b4428;
             color: #2f2417;
             box-shadow: inset 0 0 0 2px rgba(91, 68, 40, 0.35);
+        }
+
+        nav a.future-tab {
+            border-color: #c9b598;
+            background: #f9f6f0;
+            color: #5c4a3a;
+        }
+
+        nav a.future-tab:hover {
+            background-color: #f3ead1;
+        }
+
+        nav a.future-tab.active {
+            background-color: #ebe0d1;
+            border-color: #b59870;
+            color: #3d3228;
         }
 
         main {
@@ -181,8 +201,8 @@
             </div>
             <div class="profile-info">
                 <h1>Christopher Miller</h1>
-                <p>Quality Control Lead | Manufacturing | Process Improvement | Aspiring Web Developer</p>
-                <p>I’m Christopher Miller, a Quality Control Lead with hands-on experience in manufacturing environments, process improvement, and team accountability. I’m currently expanding into web development, building practical projects while strengthening my technical skill set.</p>
+                <p>Quality Control Lead</p>
+                <p>Passionate about the pursuit of knowledge and continuous improvement</p>
             </div>
         </div>
     </header>
@@ -194,6 +214,9 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li style="margin-left: auto;"></li>
+            <li><a href="#learning" class="future-tab">Currently Learning</a></li>
+            <li><a href="#services" class="future-tab">Services I'm Building</a></li>
         </ul>
     </nav>
     
@@ -204,13 +227,13 @@
         </section>
         <section id="about" class="hidden">
             <h2>About</h2>
-            <p><strong>Current Role:</strong> I work in a custom area rug manufacturing plant as a Quality Control Lead, where I help manage quality expectations, production numbers, area workflow, and process consistency. My role involves working with management to improve operations through better quality assurance, production efficiency, cost-saving processes, and workflow improvements.</p>
+            <p><strong>Current Role:</strong> I work in a custom area rug manufacturing plant as a Quality Control Lead, where I help manage quality expectations, production numbers, area workflow, an[...]
             
-            <p><strong>Web Development Goals:</strong> I am currently learning web development with the goal of helping small businesses build a stronger and more personalized online presence. I want to create websites and digital tools that reflect each business's services, atmosphere, goals, and standards while helping owners reduce the burden of managing operations, customer communication, marketing, sales, scheduling, and growth all at once.</p>
+            <p><strong>Web Development Goals:</strong> I am currently learning web development with the goal of helping small businesses build a stronger and more personalized online presence. I want [...]
             
-            <p><strong>Long-Term Vision:</strong> As I continue growing in web and software development, I hope to build systems that help businesses track finances, sales, supply costs, employee costs, production numbers, and other important operational information. Long term, I am working toward building my own business focused on helping other businesses grow, improve, and operate more efficiently.</p>
+            <p><strong>Long-Term Vision:</strong> As I continue growing in web and software development, I hope to build systems that help businesses track finances, sales, supply costs, employee cost[...]
             
-            <p><strong>Personal Philosophy:</strong> I have a strong interest in history, especially ancient battles, military tactics, and geopolitical events. I enjoy learning how leadership, strategy, and decision-making shaped major outcomes throughout history. I consider myself someone who is always learning, always improving, and always looking for ways to build better habits, sharpen my mindset, and grow in every area of life.</p>
+            <p><strong>Personal Philosophy:</strong> I have a strong interest in history, especially ancient battles, military tactics, and geopolitical events. I enjoy learning how leadership, strate[...]
         </section>
         <section id="skills" class="hidden">
             <h2>Skills</h2>
@@ -222,16 +245,31 @@
         </section>
         <section id="experience" class="hidden">
             <h2>Experience</h2>
-            <p><strong>Quality Control Lead</strong> - Demonstrated leadership in overseeing quality assurance processes, implementing rigorous testing protocols, and driving continuous improvement initiatives that reduced defects by 35% and improved team efficiency.</p>
-            <p><strong>Process Improvement Specialist</strong> - Led cross-functional teams in redesigning workflows, introducing automated quality checks, and mentoring junior staff on best practices, resulting in faster project delivery and higher customer satisfaction.</p>
-            <p><strong>Quality Assurance Analyst</strong> - Conducted comprehensive defect analysis, developed strategic test plans, and collaborated with development teams to ensure product reliability, showcasing strong analytical skills and attention to detail.</p>
-            <p><strong>Education</strong> - Autodidact with extensive self-directed learning in quality management, software testing methodologies, and leadership development through online courses, certifications, and practical experience.</p>
+            <p><strong>Quality Control Lead</strong> - Demonstrated leadership in overseeing quality assurance processes, implementing rigorous testing protocols, and driving continuous improvement in[...]
+            <p><strong>Process Improvement Specialist</strong> - Led cross-functional teams in redesigning workflows, introducing automated quality checks, and mentoring junior staff on best practices[...]
+            <p><strong>Quality Assurance Analyst</strong> - Conducted comprehensive defect analysis, developed strategic test plans, and collaborated with development teams to ensure product reliabili[...]
+            <p><strong>Education</strong> - Autodidact with extensive self-directed learning in quality management, software testing methodologies, and leadership development through online courses, c[...]
+        </section>
+        <section id="learning" class="hidden">
+            <h2>Currently Learning</h2>
+            <p><strong>HTML and CSS Fundamentals</strong> - Building a strong foundation in web structure and styling to create responsive and visually appealing websites.</p>
+            <p><strong>Git and GitHub Workflow</strong> - Mastering version control, collaboration, and deploying projects to share work with teams and the world.</p>
+            <p><strong>Responsive Website Design</strong> - Developing skills to create websites that work seamlessly across all devices and screen sizes.</p>
+            <p><strong>Basic JavaScript</strong> - Learning programming logic and interactivity to create dynamic, user-friendly web applications.</p>
+            <p><strong>Building Portfolio Projects</strong> - Applying skills through real-world projects to showcase abilities and build professional experience.</p>
+        </section>
+        <section id="services" class="hidden">
+            <h2>Services I'm Building Toward</h2>
+            <p><strong>Personal Websites</strong> - Creating professional online presences that showcase individuals' unique value and story in a clean, memorable way.</p>
+            <p><strong>Clean Profile and Portfolio Pages</strong> - Building polished, easy-to-navigate pages that help individuals display their work, skills, and achievements effectively.</p>
+            <p><strong>Small Business Interactive Websites</strong> - Designing engaging websites that help small businesses showcase their services, attract customers, and facilitate meaningful inter[...]
+            <p><strong>Digital Branding</strong> - Developing cohesive visual and digital identities that reflect a brand's values, personality, and mission.</p>
+            <p><strong>Basic Layouts and Content Structure</strong> - Creating intuitive page structures and information organization that guides users through a compelling brand story.</p>
+            <p><strong>Content Structure for New Brands</strong> - Strategically organizing information and messaging to help new businesses establish credibility, communicate their value, and build c[...]
         </section>
         <section id="portfolio" class="hidden">
             <h2>Portfolio</h2>
-            <p><strong>Quality Process Redesign</strong> - Led the overhaul of testing protocols, resulting in a 35% reduction in defects and improved delivery timelines.</p>
-            <p><strong>Audit Readiness Programs</strong> - Developed comprehensive audit preparation frameworks that ensured compliance and minimized risks.</p>
-            <p><strong>Collaborative Testing Roadmaps</strong> - Created integrated testing strategies that enhanced team collaboration and product confidence.</p>
+            <p>Coming soon...</p>
         </section>
         <section id="contact" class="hidden">
             <h2>Contact</h2>
