@@ -94,6 +94,10 @@
             margin: 10px;
         }
 
+        nav li[style*="margin-left: auto"] {
+            flex-grow: 1;
+        }
+
         nav a {
             display: block;
             padding: 14px 22px;
@@ -117,6 +121,22 @@
             border-color: #5b4428;
             color: #2f2417;
             box-shadow: inset 0 0 0 2px rgba(91, 68, 40, 0.35);
+        }
+
+        nav a.future-tab {
+            border-color: #c9b598;
+            background: #f9f6f0;
+            color: #5c4a3a;
+        }
+
+        nav a.future-tab:hover {
+            background-color: #f3ead1;
+        }
+
+        nav a.future-tab.active {
+            background-color: #ebe0d1;
+            border-color: #b59870;
+            color: #3d3228;
         }
 
         main {
@@ -192,9 +212,11 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#learning">Currently Learning</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li style="margin-left: auto;"></li>
+            <li><a href="#learning" class="future-tab">Currently Learning</a></li>
+            <li><a href="#services" class="future-tab">Services I'm Building</a></li>
         </ul>
     </nav>
     
@@ -235,6 +257,15 @@
             <p><strong>Responsive Website Design</strong> - Developing skills to create websites that work seamlessly across all devices and screen sizes.</p>
             <p><strong>Basic JavaScript</strong> - Learning programming logic and interactivity to create dynamic, user-friendly web applications.</p>
             <p><strong>Building Portfolio Projects</strong> - Applying skills through real-world projects to showcase abilities and build professional experience.</p>
+        </section>
+        <section id="services" class="hidden">
+            <h2>Services I'm Building Toward</h2>
+            <p><strong>Personal Websites</strong> - Creating professional online presences that showcase individuals' unique value and story in a clean, memorable way.</p>
+            <p><strong>Clean Profile and Portfolio Pages</strong> - Building polished, easy-to-navigate pages that help individuals display their work, skills, and achievements effectively.</p>
+            <p><strong>Small Business Interactive Websites</strong> - Designing engaging websites that help small businesses showcase their services, attract customers, and facilitate meaningful interactions.</p>
+            <p><strong>Digital Branding</strong> - Developing cohesive visual and digital identities that reflect a brand's values, personality, and mission.</p>
+            <p><strong>Basic Layouts and Content Structure</strong> - Creating intuitive page structures and information organization that guides users through a compelling brand story.</p>
+            <p><strong>Content Structure for New Brands</strong> - Strategically organizing information and messaging to help new businesses establish credibility, communicate their value, and build customer trust.</p>
         </section>
         <section id="portfolio" class="hidden">
             <h2>Portfolio</h2>
