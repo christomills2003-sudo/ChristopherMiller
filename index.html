@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christopher Miller</title>
+    <meta name="description" content="Miller Digital Works builds professional, mobile-friendly websites and practical digital systems for small businesses that need a stronger online presence.">
+    <title>Miller Digital Works | Small Business Websites</title>
+    <link rel="icon" href="data:,">
 
     <style>
+        :root {
+            --navy-990: #030814;
+            --navy-980: #06101f;
+            --navy-950: #081727;
+            --navy-900: #0b1b2d;
+            --navy-850: #10263f;
+            --navy-800: #17314f;
+            --gold-700: #b8862d;
+            --gold-600: #d6a84f;
+            --gold-500: #e5bd63;
+            --gold-300: #f4d58a;
+            --gold-100: #fff1c7;
+            --cream-100: #fffaf0;
+            --cream-50: #fffdf7;
+            --white: #ffffff;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-300: #cbd5e1;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --green-700: #047857;
+            --green-100: #d1fae5;
+            --purple-700: #6d28d9;
+            --purple-100: #ede9fe;
+            --text-main: #0b1b2d;
+            --text-muted: #475569;
+            --border: rgba(184, 134, 45, 0.36);
+            --surface: #ffffff;
+            --surface-soft: #fffdf7;
+            --shadow-soft: 0 18px 40px rgba(3, 8, 20, 0.16);
+            --shadow-card: 0 10px 26px rgba(3, 8, 20, 0.10);
+            --radius-lg: 24px;
+            --radius-md: 18px;
+            --radius-sm: 12px;
+            --max-width: 1180px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,163 +57,710 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f4eddf;
-            color: #2f2417;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: linear-gradient(180deg, var(--navy-990) 0%, var(--navy-950) 42%, #f7f2e7 42%, #edf1f6 100%);
+            color: var(--text-main);
             line-height: 1.6;
+            min-width: 320px;
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        a {
+            color: var(--navy-900);
+            font-weight: 850;
+        }
+
+        button, a, input, select, textarea {
+            -webkit-tap-highlight-color: transparent;
+            font: inherit;
+        }
+
+        :focus-visible {
+            outline: 4px solid var(--gold-500);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 16px;
+            z-index: 9999;
+            padding: 12px 16px;
+            background: var(--navy-990);
+            color: var(--white);
+            border-radius: 0 0 10px 10px;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .intro-screen {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            display: grid;
+            place-items: center;
+            background:
+                radial-gradient(circle at center, rgba(214, 168, 79, 0.18), transparent 35%),
+                linear-gradient(135deg, var(--navy-990), var(--navy-900));
+            color: var(--white);
+            animation: introExit 1.55s ease forwards;
+        }
+
+        .intro-logo {
+            display: grid;
+            justify-items: center;
+            gap: 16px;
+            transform: translateX(-36px);
+            opacity: 0;
+            animation: logoSlideIn 0.85s ease forwards;
+        }
+
+        .intro-logo .brand-mark {
+            transform: scale(1.25);
+        }
+
+        .intro-logo-text {
+            font-family: Georgia, "Times New Roman", serif;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            color: var(--gold-300);
+        }
+
+        @keyframes logoSlideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes introExit {
+            0%, 70% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
         }
 
         header {
-            background: linear-gradient(135deg, #4f642b 0%, #6f6634 45%, #7a6336 100%);
-            color: #ffffff;
-            padding: 30px 20px;
-            box-shadow: 0 4px 18px rgba(47, 36, 23, 0.22);
-            border-bottom: 5px solid #5b3a23;
+            background:
+                radial-gradient(circle at top right, rgba(214, 168, 79, 0.22), transparent 34%),
+                linear-gradient(135deg, var(--navy-990) 0%, var(--navy-900) 58%, var(--navy-800) 100%);
+            color: var(--white);
+            border-bottom: 2px solid var(--gold-600);
+            box-shadow: 0 10px 30px rgba(3, 8, 20, 0.30);
         }
 
         .header-container {
-            max-width: 1180px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            padding: 34px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
             align-items: center;
-            gap: 34px;
         }
 
-        .profile-image {
-            width: 145px;
-            height: 145px;
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .logo-md {
+            width: 74px;
+            height: 74px;
             border-radius: 50%;
-            border: 5px solid #8b5e3c;
-            overflow: hidden;
-            background: #f4eddf;
-            box-shadow: 0 10px 24px rgba(47, 36, 23, 0.25);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 4px solid currentColor;
+            border-right-color: transparent;
+            color: #050505;
+            background: var(--white);
+            display: inline-grid;
+            place-items: center;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            font-size: 1.48rem;
+            font-weight: 500;
+            letter-spacing: -0.16em;
+            padding-right: 4px;
+            box-shadow: 0 0 0 2px rgba(229, 189, 99, 0.42), 0 14px 26px rgba(0, 0, 0, 0.24);
         }
 
-        .profile-image:hover {
-            transform: scale(1.04);
-            box-shadow: 0 14px 30px rgba(47, 36, 23, 0.34);
+        .logo-dash {
+            width: 40px;
+            height: 4px;
+            background: var(--gold-600);
+            border-radius: 999px;
         }
 
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .logo-w {
+            color: var(--gold-600);
+            font-family: "Trebuchet MS", Arial, sans-serif;
+            font-size: 2.05rem;
+            font-weight: 950;
+            letter-spacing: 0.02em;
         }
 
         .profile-info {
-            max-width: 760px;
-            text-align: center;
+            max-width: 860px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(214, 168, 79, 0.12);
+            border: 1px solid rgba(214, 168, 79, 0.50);
+            color: var(--gold-300);
+            font-size: 0.82rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         .profile-info h1 {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 2.75rem;
-            margin-bottom: 12px;
-            letter-spacing: 0.06em;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            line-height: 1;
+            letter-spacing: 0.035em;
             text-transform: uppercase;
-            color: #f8f1da;
-            text-shadow: 1px 2px 3px rgba(47, 36, 23, 0.35);
+            margin-bottom: 12px;
         }
 
         .profile-info p {
-            font-size: 1.08rem;
-            opacity: 0.98;
-            margin-bottom: 8px;
-            color: #f3ead1;
+            color: var(--slate-200);
+            font-size: 1.1rem;
+            max-width: 760px;
         }
 
-        .profile-info .tagline {
-            display: inline-block;
-            margin-top: 8px;
-            padding: 8px 16px;
-            border: 1px solid rgba(248, 241, 218, 0.45);
+        .header-actions,
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 12px 18px;
+            border: 2px solid transparent;
             border-radius: 999px;
-            background: rgba(47, 36, 23, 0.18);
-            color: #fff8e8;
-            font-weight: 600;
+            text-decoration: none;
+            font-weight: 950;
+            cursor: pointer;
+            transition:
+                transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.34s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        nav {
-            background-color: #d8d2b0;
-            border-top: 2px solid #8b5e3c;
-            border-bottom: 2px solid #8b5e3c;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(3, 8, 20, 0.18);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gold-700);
+            color: var(--white);
+            border-color: var(--gold-600);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(229, 189, 99, 0.70);
+        }
+
+        .hero .btn-secondary {
+            color: var(--navy-900);
+            border-color: var(--navy-800);
+            background: var(--white);
+        }
+
+        .site-nav {
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 100;
+            background: rgba(5, 11, 20, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(214, 168, 79, 0.40);
         }
 
-        nav ul {
-            max-width: 1180px;
+        .nav-inner {
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 14px 16px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .nav-brand {
+            display: none;
+            color: var(--gold-500);
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(214, 168, 79, 0.55);
+            border-radius: 12px;
+            background: var(--navy-900);
+            color: var(--gold-500);
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            margin: 5px auto;
+            border-radius: 999px;
+            background: currentColor;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-menu {
+            width: 100%;
+        }
+
+        .nav-menu ul {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 8px;
             list-style: none;
         }
 
-        nav a {
+        .nav-menu a {
             display: block;
-            padding: 11px 19px;
-            color: #2f2417;
-            text-decoration: none;
-            border: 2px solid #7a4f2f;
+            min-height: 44px;
+            padding: 10px 15px;
+            color: var(--slate-200);
             border-radius: 999px;
-            background: #f6edd9;
-            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-            font-weight: 700;
+            text-decoration: none;
+            font-weight: 900;
+            transition: background-color 0.18s ease, color 0.18s ease;
         }
 
-        nav a:hover,
-        nav a:focus {
-            background-color: #eadcc0;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(47, 36, 23, 0.14);
-        }
-
-        nav a.active {
-            background-color: #556b2f;
-            border-color: #425322;
-            color: #ffffff;
-            box-shadow: 0 6px 14px rgba(47, 36, 23, 0.18);
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: rgba(214, 168, 79, 0.16);
+            color: var(--white);
+            box-shadow: inset 0 -3px 0 var(--gold-600);
         }
 
         main {
-            max-width: 1220px;
-            margin: 24px auto 18px auto;
-            padding: 24px;
-            background: #f7eedb;
-            border: 1px solid #b59870;
-            border-radius: 20px;
-            box-shadow: 0 14px 34px rgba(47, 36, 23, 0.10);
+            max-width: var(--max-width);
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        main section {
+            padding: 34px;
+            margin-bottom: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-soft);
         }
 
         .hidden {
             display: none;
         }
 
-        main section {
-            margin-bottom: 28px;
-            padding: 28px;
-            background: #efe3cb;
-            border: 1px solid #d0b38b;
-            border-radius: 16px;
-            animation: fadeIn 0.25s ease;
+        main section:not(.hidden) {
+            animation: sectionReveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
         }
 
-        main section:last-child {
+        @keyframes sectionReveal {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(0.992);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        h2, h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--navy-900);
+            line-height: 1.18;
+        }
+
+        h2 {
+            font-size: clamp(1.85rem, 3vw, 2.45rem);
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(184, 134, 45, 0.32);
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 78px;
+            height: 2px;
+            background: var(--gold-700);
+        }
+
+        h3 {
+            font-size: 1.28rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1.03rem;
+            margin-bottom: 14px;
+        }
+
+        p:last-child {
             margin-bottom: 0;
         }
 
-        @keyframes fadeIn {
+        .section-intro {
+            max-width: 900px;
+            margin-bottom: 22px;
+        }
+
+        .hero {
+            background:
+                linear-gradient(135deg, rgba(255, 250, 240, 0.98), rgba(255, 255, 255, 0.94)),
+                var(--white);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+            gap: 28px;
+            align-items: center;
+        }
+
+        .hero-copy h2 {
+            font-size: clamp(2.15rem, 4vw, 3.45rem);
+            max-width: 840px;
+        }
+
+        .hero-copy .lead {
+            font-size: 1.15rem;
+            color: var(--navy-800);
+        }
+
+        .value-panel {
+            display: grid;
+            gap: 14px;
+        }
+
+        .value-item {
+            padding: 18px;
+            background: var(--surface);
+            border: 1px solid rgba(184, 134, 45, 0.30);
+            border-left: 5px solid var(--gold-700);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            transition:
+                transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .value-item:hover {
+            transform: translateY(-7px) scale(1.015);
+            border-color: rgba(184, 134, 45, 0.72);
+            background: var(--cream-50);
+            box-shadow: 0 22px 46px rgba(3, 8, 20, 0.18);
+        }
+
+        .value-item strong {
+            display: block;
+            color: var(--navy-900);
+            font-weight: 950;
+            margin-bottom: 4px;
+        }
+
+        .service-board {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+            gap: 16px;
+            margin-top: 56px;
+        }
+
+        .service-board::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            top: -18px;
+            height: 4px;
+            border-radius: 999px;
+            background:
+                radial-gradient(circle, var(--gold-600) 2px, transparent 3px) 0 50% / 22px 4px repeat-x,
+                linear-gradient(90deg, transparent, rgba(184, 134, 45, 0.22), transparent);
+            opacity: 0.85;
+        }
+
+        .service-board::after {
+            content: "Entry → Core → Growth → Future";
+            position: absolute;
+            left: 18px;
+            top: -46px;
+            color: var(--gold-700);
+            font-size: 0.78rem;
+            font-weight: 950;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .service-board:has(.entry-card:hover) .core-card {
+            animation: nextStepPulse 0.9s ease-in-out infinite alternate;
+            border-color: rgba(184, 134, 45, 0.86);
+        }
+
+        @keyframes nextStepPulse {
+            from {
+                transform: translateY(0);
+                box-shadow: var(--shadow-card);
+            }
+            to {
+                transform: translateY(-4px);
+                box-shadow: 0 18px 36px rgba(184, 134, 45, 0.20);
+            }
+        }
+
+        .service-card {
+            position: relative;
+            padding: 22px;
+            background: var(--surface-soft);
+            border: 1px solid rgba(184, 134, 45, 0.34);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition:
+                transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(184, 134, 45, 0.72);
+            box-shadow: 0 18px 36px rgba(3, 8, 20, 0.16);
+        }
+
+        .service-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .service-icon {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: var(--navy-900);
+            color: var(--gold-500);
+            border: 1px solid var(--gold-600);
+            font-weight: 950;
+        }
+
+        .popular-badge,
+        .value-badge {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: var(--gold-700);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 950;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .value-badge {
+            background: var(--navy-900);
+            color: var(--gold-500);
+            border: 1px solid var(--gold-600);
+        }
+
+        .price-tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted var(--gold-700);
+            cursor: help;
+        }
+
+        .price-tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 0;
+            bottom: calc(100% + 10px);
+            z-index: 20;
+            width: min(280px, 80vw);
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: var(--navy-900);
+            color: var(--white);
+            border: 1px solid var(--gold-600);
+            box-shadow: var(--shadow-card);
+            font-size: 0.84rem;
+            line-height: 1.45;
+            opacity: 0;
+            transform: translateY(6px);
+            pointer-events: none;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+        }
+
+        .price-tooltip:hover::after,
+        .price-tooltip:focus::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-strip {
+            margin: 18px 0 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+        }
+
+        .testimonial-card {
+            min-height: 120px;
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background: var(--surface-soft);
+            border: 1px dashed rgba(184, 134, 45, 0.48);
+            color: var(--text-muted);
+            box-shadow: var(--shadow-card);
+        }
+
+        .testimonial-card strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--navy-900);
+        }
+
+        .example-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: var(--navy-900);
+            text-decoration: underline;
+            text-decoration-color: var(--gold-700);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .faq-item {
+            background: var(--surface-soft);
+            border: 1px solid rgba(184, 134, 45, 0.34);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition:
+                transform 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(184, 134, 45, 0.68);
+            box-shadow: 0 16px 32px rgba(3, 8, 20, 0.14);
+        }
+
+        .faq-item summary {
+            min-height: 56px;
+            padding: 16px 18px;
+            cursor: pointer;
+            font-weight: 950;
+            color: var(--navy-900);
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            float: right;
+            color: var(--gold-700);
+            font-size: 1.2rem;
+        }
+
+        .faq-item[open] summary::after {
+            content: "–";
+        }
+
+        .faq-item p {
+            padding: 0 18px 18px;
+        }
+
+        .faq-item[open] p {
+            animation: faqReveal 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        @keyframes faqReveal {
             from {
                 opacity: 0;
-                transform: translateY(8px);
+                transform: translateY(-8px);
             }
 
             to {
@@ -182,671 +769,1031 @@
             }
         }
 
-        h2 {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 2.15rem;
-            color: #3b2d1e;
-            margin-bottom: 14px;
-        }
-
-        p {
-            font-size: 1.05rem;
-            color: #3c3328;
-            margin-bottom: 14px;
-        }
-
-        p:last-child {
-            margin-bottom: 0;
-        }
-
-        .front-page {
-            background: linear-gradient(180deg, #fbf7ef 0%, #f4ead4 100%);
-            border: 1px solid #c5a87e;
-            padding: 26px;
-        }
-
-        .front-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.25fr;
-            gap: 28px;
-            align-items: stretch;
-        }
-
-        .front-copy {
-            padding: 10px 0;
-        }
-
-        .front-intro {
-            max-width: 620px;
-            font-size: 1.08rem;
-            color: #33281b;
-        }
-
-        .front-highlight {
-            margin-top: 24px;
-            padding: 18px 20px;
-            background: rgba(248, 239, 217, 0.85);
-            border-left: 5px solid #556b2f;
-            border-radius: 12px;
-            box-shadow: 0 8px 18px rgba(47, 36, 23, 0.08);
-        }
-
-        .front-highlight p {
-            font-size: 1.03rem;
-            font-style: italic;
-            color: #304122;
-            font-weight: 600;
-        }
-
-        .personal-note {
-            margin-top: 20px;
-            padding: 16px 18px;
-            background: #f6edd9;
-            border: 1px solid #d3bd99;
-            border-radius: 12px;
-        }
-
-        .personal-note strong {
-            color: #3b2d1e;
-        }
-
-        .front-card-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .front-card,
-        .info-card {
-            background: #fbf7ef;
-            border: 1px solid #d3bd99;
-            border-radius: 16px;
-            padding: 22px 18px;
-            box-shadow: 0 8px 20px rgba(47, 36, 23, 0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        }
-
-        .front-card {
-            text-align: center;
-            min-height: 310px;
-        }
-
-        .front-card:hover,
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: #8b5e3c;
-            box-shadow: 0 12px 24px rgba(47, 36, 23, 0.15);
-        }
-
-        .icon-circle {
-            width: 96px;
-            height: 96px;
-            margin: 0 auto 16px auto;
-            border-radius: 50%;
-            background: #e8e7cf;
-            border: 2px solid #d7c6a5;
+        .service-cta-row {
+            margin: 16px 0 8px;
+            padding: 18px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
+            color: var(--white);
+            border: 1px solid rgba(214, 168, 79, 0.42);
             display: flex;
             align-items: center;
-            justify-content: center;
-            box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.24);
-        }
-
-        .card-icon {
-            width: 54px;
-            height: 54px;
-            color: #556b2f;
-        }
-
-        .front-card h3,
-        .info-card h3 {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: #2f2417;
-            margin-bottom: 12px;
-            font-size: 1.22rem;
-            line-height: 1.25;
-        }
-
-        .card-divider {
-            width: 38px;
-            height: 4px;
-            background: #7a4f2f;
-            border-radius: 999px;
-            margin: 0 auto 16px auto;
-        }
-
-        .front-card p,
-        .info-card p {
-            font-size: 0.98rem;
-            margin-bottom: 0;
-        }
-
-        .front-contact-strip {
-            margin-top: 22px;
-            padding: 18px 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            background: #f6edd9;
-            border: 2px solid #b59870;
-            border-radius: 14px;
-            box-shadow: 0 8px 18px rgba(47, 36, 23, 0.08);
-        }
-
-        .front-contact-item {
-            display: flex;
-            align-items: center;
+            justify-content: space-between;
             gap: 14px;
-            padding: 6px 10px;
-            border-right: 1px solid #b59870;
+            flex-wrap: wrap;
         }
 
-        .front-contact-item:last-child {
-            border-right: none;
+        .service-cta-row p {
+            color: var(--slate-200);
+            margin-bottom: 0;
         }
 
-        .contact-icon-circle {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
-            border-radius: 50%;
-            background: #556b2f;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 14px rgba(47, 36, 23, 0.16);
-        }
-
-        .contact-icon-circle svg {
-            width: 26px;
-            height: 26px;
-        }
-
-        .front-contact-item strong {
-            display: block;
-            color: #2f2417;
-            font-size: 1rem;
-        }
-
-        .front-contact-item a {
-            color: #3c3328;
-            text-decoration: none;
-            font-weight: 600;
-            word-break: break-word;
-        }
-
-        .front-contact-item a:hover {
-            text-decoration: underline;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
+        .service-card-action {
             margin-top: 18px;
         }
 
-        .section-intro {
-            max-width: 900px;
-            margin-bottom: 18px;
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--navy-900), var(--gold-600));
         }
 
-        .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .service-card.featured {
+            background: linear-gradient(180deg, #fffdf7, #ffffff);
+            border-color: rgba(184, 134, 45, 0.68);
+        }
+
+        .service-level {
+            display: inline-flex;
             align-items: center;
-            margin-bottom: 14px;
-        }
-
-        .project-status {
-            display: inline-block;
-            padding: 6px 12px;
+            min-height: 28px;
+            padding: 5px 9px;
             border-radius: 999px;
-            background: #556b2f;
-            color: #ffffff;
-            font-size: 0.85rem;
-            font-weight: 800;
-            letter-spacing: 0.02em;
-            border: 1px solid #425322;
-        }
-
-        .project-updated {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: #e8e7cf;
-            color: #3c3328;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border: 1px solid #cbb28d;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 4px;
+            background: var(--navy-900);
+            color: var(--gold-500);
+            font-size: 0.78rem;
+            font-weight: 950;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             margin-bottom: 12px;
-            word-break: break-word;
         }
 
+        .service-price {
+            display: block;
+            margin: 8px 0 14px;
+            color: var(--navy-900);
+            font-weight: 950;
+            font-size: 1.02rem;
+        }
+
+        .tag-row,
         .language-list {
-            margin-top: 14px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-top: 14px;
         }
 
+        .tag,
         .language-pill {
-            display: inline-block;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: #f6edd9;
-            border: 1px solid #cbb28d;
-            color: #2f2417;
-            font-size: 0.85rem;
-            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            padding: 5px 9px;
+            border-radius: 8px;
+            background: rgba(184, 134, 45, 0.08);
+            border: 1px solid rgba(184, 134, 45, 0.22);
+            color: var(--slate-700);
+            font-size: 0.82rem;
+            font-weight: 850;
         }
 
-        a {
-            color: #5b4428;
-            font-weight: 700;
-        }
-
-        footer {
-            background: linear-gradient(135deg, #33281b 0%, #5b4428 100%);
-            color: #f8f1da;
-            text-align: center;
-            padding: 26px 18px;
+        .process-list {
+            display: grid;
+            gap: 16px;
             margin-top: 18px;
-            border-top: 4px solid #7a4f2f;
+            counter-reset: process;
         }
 
-        .footer-mark {
-            color: #d7c087;
+        .process-step {
+            position: relative;
+            padding: 20px 20px 20px 78px;
+            background: var(--surface-soft);
+            border: 1px solid rgba(184, 134, 45, 0.34);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            counter-increment: process;
+        }
+
+        .process-step::before {
+            content: counter(process);
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 14px;
+            background: var(--navy-900);
+            color: var(--gold-500);
+            display: grid;
+            place-items: center;
+            font-weight: 950;
+            border: 1px solid var(--gold-600);
+        }
+
+        .process-step ul {
+            margin: 10px 0 0 20px;
+            color: var(--text-muted);
+            font-weight: 750;
+        }
+
+        .process-step li {
+            margin-bottom: 6px;
+        }
+
+        .about-layout,
+        .contact-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(270px, 0.8fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .profile-lead {
+            padding: 18px;
+            background: var(--gold-100);
+            border: 1px solid var(--gold-500);
+            border-radius: var(--radius-md);
+            color: var(--navy-900);
+            font-weight: 750;
+        }
+
+        .side-panel,
+        .contact-card {
+            padding: 22px;
+            background: var(--surface-soft);
+            border: 1px solid rgba(184, 134, 45, 0.34);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+        }
+
+        .consultant-profile {
+            margin-top: 22px;
+            padding: 18px;
+            background: var(--surface-soft);
+            border: 1px solid rgba(184, 134, 45, 0.42);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .consultant-photo-placeholder {
+            width: 76px;
+            height: 76px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--navy-900), var(--gold-700));
+            color: var(--white);
+            display: grid;
+            place-items: center;
+            font-weight: 950;
+            letter-spacing: 0.06em;
+            border: 2px solid var(--white);
+            box-shadow: 0 10px 18px rgba(15, 23, 42, 0.16);
+        }
+
+        .consultant-profile p {
+            margin-bottom: 0;
+        }
+
+        .contact-methods {
+            display: grid;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px;
+            border-radius: var(--radius-sm);
+            background: var(--white);
+            border: 1px solid rgba(184, 134, 45, 0.26);
+        }
+
+        .contact-icon-circle {
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+            border-radius: 14px;
+            background: var(--gold-700);
+            color: var(--white);
+            display: grid;
+            place-items: center;
+        }
+
+        .contact-icon-circle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-method strong {
+            display: block;
+            color: var(--navy-900);
+        }
+
+        .contact-method a {
+            color: var(--slate-700);
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-note ul {
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-weight: 750;
+        }
+
+        .contact-note li {
             margin-bottom: 8px;
         }
 
-        .footer-mark svg {
-            width: 30px;
-            height: 30px;
+        .profile-modal,
+        .consult-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(3, 8, 20, 0.78);
+        }
+
+        .profile-modal.open,
+        .consult-modal.open {
+            display: flex;
+            animation: modalBackdropReveal 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .profile-modal.open .profile-modal-card,
+        .consult-modal.open .consult-modal-card {
+            animation: modalCardReveal 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        @keyframes modalBackdropReveal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes modalCardReveal {
+            from {
+                opacity: 0;
+                transform: translateY(18px) scale(0.985);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .profile-modal-card,
+        .consult-modal-card {
+            width: min(700px, 100%);
+            max-height: 90vh;
+            overflow: auto;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(184, 134, 45, 0.42);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+            padding: 26px;
+            position: relative;
+        }
+
+        .modal-close,
+        .consult-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid rgba(184, 134, 45, 0.42);
+            background: var(--surface-soft);
+            color: var(--navy-900);
+            font-size: 1.35rem;
+            font-weight: 950;
+            cursor: pointer;
+        }
+
+        .profile-modal-card ul {
+            margin: 10px 0 0 20px;
+            color: var(--text-muted);
+            font-weight: 750;
+        }
+
+        .profile-modal-card li {
+            margin-bottom: 8px;
+        }
+
+        .quote-box {
+            margin-top: 14px;
+            padding: 18px;
+            border-left: 5px solid var(--gold-700);
+            background: var(--cream-100);
+            border-radius: var(--radius-sm);
+            font-style: italic;
+            color: var(--navy-900);
+        }
+
+        .consult-form {
+            display: grid;
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .form-field {
+            display: grid;
+            gap: 6px;
+        }
+
+        .form-field label {
+            color: var(--navy-900);
+            font-weight: 900;
+        }
+
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 14px;
+            background: var(--surface-soft);
+            color: var(--navy-900);
+        }
+
+        .form-field textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-note {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 99;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--gold-600);
+            background: var(--navy-900);
+            color: var(--gold-500);
+            font-weight: 950;
+            cursor: pointer;
+            box-shadow: var(--shadow-card);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        footer {
+            margin-top: 28px;
+            padding: 28px 18px;
+            text-align: center;
+            background: var(--navy-990);
+            color: var(--slate-200);
+            border-top: 2px solid var(--gold-600);
         }
 
         footer p {
-            color: #f8f1da;
-            margin-bottom: 6px;
+            color: var(--slate-200);
             font-size: 0.95rem;
+            margin-bottom: 6px;
         }
 
         footer a {
-            color: #fff8e8;
-            text-decoration: underline;
-            font-weight: 600;
+            color: var(--white);
         }
 
-        @media (max-width: 980px) {
-            .front-layout {
+        @media (max-width: 900px) {
+            .hero-grid,
+            .about-layout,
+            .contact-panel {
                 grid-template-columns: 1fr;
             }
 
-            .front-card-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .front-card {
-                min-height: auto;
-            }
-
-            .front-contact-strip {
-                grid-template-columns: 1fr;
-            }
-
-            .front-contact-item {
-                border-right: none;
-                border-bottom: 1px solid #b59870;
-                padding: 10px 4px;
-            }
-
-            .front-contact-item:last-child {
-                border-bottom: none;
+            .header-actions,
+            .hero-actions {
+                justify-content: flex-start;
             }
         }
 
-        @media (max-width: 768px) {
-            header {
-                padding: 26px 18px;
+        @media (max-width: 760px) {
+            .service-board::after {
+                left: 6px;
+                top: -42px;
+                font-size: 0.68rem;
+            }
+
+            .service-cta-row {
+                align-items: stretch;
+            }
+
+            .service-cta-row .btn {
+                width: 100%;
+            }
+
+            .intro-logo .brand-mark {
+                transform: scale(0.95);
             }
 
             .header-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
+                padding: 20px 16px;
+            }
+
+            .logo-md {
+                width: 52px;
+                height: 52px;
+                font-size: 1.05rem;
+            }
+
+            .logo-dash {
+                width: 28px;
+                height: 3px;
+            }
+
+            .logo-w {
+                font-size: 1.25rem;
+            }
+
+            .eyebrow {
+                font-size: 0.72rem;
+                padding: 6px 10px;
             }
 
             .profile-info h1 {
-                font-size: 2.05rem;
+                font-size: 1.75rem;
             }
 
-            .profile-image {
-                width: 125px;
-                height: 125px;
-                margin: 0 auto;
-            }
-
-            nav ul {
-                justify-content: center;
-                gap: 10px;
-                padding: 12px;
-            }
-
-            nav a {
-                padding: 10px 16px;
+            .profile-info p {
                 font-size: 0.95rem;
             }
 
+            .header-actions .btn,
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 340px;
+            }
+
+            .nav-inner {
+                padding: 10px 14px;
+            }
+
+            .nav-brand,
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                background: var(--navy-980);
+                border-bottom: 1px solid rgba(214, 168, 79, 0.42);
+                box-shadow: 0 18px 28px rgba(3, 8, 20, 0.36);
+                transform-origin: top;
+                transform: scaleY(0);
+                opacity: 0;
+                pointer-events: none;
+                transition: transform 0.18s ease, opacity 0.18s ease;
+            }
+
+            .nav-menu.open {
+                transform: scaleY(1);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-menu ul {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 12px;
+            }
+
+            .nav-menu a {
+                min-height: 48px;
+                border-radius: 12px;
+                text-align: center;
+            }
+
             main {
-                margin: 18px 10px;
-                padding: 14px;
+                margin: 14px auto;
+                padding: 0 10px;
             }
 
             main section {
                 padding: 20px;
+                border-radius: 18px;
             }
 
-            h2 {
-                font-size: 1.75rem;
+            .hero-copy h2 {
+                font-size: 2rem;
+            }
+
+            .service-board {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                padding: 18px 18px 18px 68px;
+            }
+
+            .process-step::before {
+                left: 16px;
+                top: 18px;
+            }
+
+            .consultant-profile {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .profile-modal-card,
+            .consult-modal-card {
+                padding: 22px 18px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .profile-info h1 {
+                font-size: 1.45rem;
+            }
+
+            .logo-md {
+                width: 46px;
+                height: 46px;
+                font-size: 0.94rem;
+            }
+
+            .logo-dash {
+                width: 22px;
+            }
+
+            .logo-w {
+                font-size: 1.05rem;
+            }
+
+            .hero-copy h2 {
+                font-size: 1.72rem;
+            }
+
+            main section {
+                padding: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .intro-screen {
+                animation-duration: 0.001ms !important;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
             }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="profile-image">
-                <img src="images/chris.jpg" alt="Christopher Miller profile picture">
-            </div>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
+    <div class="intro-screen" aria-hidden="true">
+        <div class="intro-logo">
+            <div class="brand-mark" aria-label="Miller Digital Works logo"><span class="logo-md">MD</span><span class="logo-dash"></span><span class="logo-w">W</span></div>
+            <div class="intro-logo-text">Miller Digital Works</div>
+        </div>
+    </div>
+
+    <header id="top">
+        <div class="header-container">
             <div class="profile-info">
-                <h1>Christopher Miller</h1>
-                <p>Quality Control Lead</p>
-                <p class="tagline">Manufacturing | Process Improvement | Web Development</p>
+                <h1>Miller Digital Works</h1>
+                <p>Professional websites, clearer digital presence, and practical systems for small businesses that need to look credible online.</p>
+
+                <div class="header-actions" aria-label="Primary actions">
+                    <a class="btn btn-primary" href="#services">View Services</a>
+                    <button class="btn btn-secondary consult-open" type="button">Request a Consult</button>
+                </div>
             </div>
         </div>
     </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#welcome" class="active">Home</a></li>
-            <li><a href="#skills-experience">Skills & Experience</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#services">Services</a></li>
-        </ul>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+        <div class="nav-inner">
+            <div class="nav-brand">MDW</div>
+
+            <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#welcome" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-    
-    <main>
-        <section id="welcome" class="front-page">
-            <div class="front-layout">
-                <div class="front-copy">
-                    <h2>Professional Profile</h2>
 
-                    <p class="front-intro">
-                        I’m Christopher Miller, a Quality Control Lead in custom area rug manufacturing with a growing focus in web development, business systems, and digital growth for small businesses.
+    <main id="main-content">
+        <section id="welcome" class="hero">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <h2>Business websites built to look sharp, load clean, and make contact easy.</h2>
+                    <p class="lead">
+                        Miller Digital Works helps local businesses create a stronger online presence with clean page structure, mobile-first layouts, clear service messaging, and direct customer action paths.
                     </p>
-
-                    <div class="front-highlight">
-                        <p>
-                            My background in manufacturing has shaped the way I approach work: with attention to detail, process improvement, accountability, and practical problem-solving. I’m now applying that same mindset to web development, with the goal of creating useful websites and digital tools that help businesses operate more clearly and efficiently.
-                        </p>
-                    </div>
-
-                    <div class="personal-note">
-                        <p>
-                            <strong>Personal Interests:</strong> Outside of work and web development, I enjoy history, chess, books, philosophical debates, and birds. These interests keep me curious and help sharpen how I think, learn, and solve problems.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="front-card-grid">
-                    <div class="front-card">
-                        <div class="icon-circle">
-                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M3 20V9l5 3V9l5 3V5h5v15H3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
-                                <path d="M6 17h2M11 17h2M16 17h2M16 8h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-                            </svg>
-                        </div>
-                        <h3>Manufacturing Background</h3>
-                        <div class="card-divider"></div>
-                        <p>
-                            Experience supporting quality expectations, production numbers, workflow consistency, and process improvement in a custom manufacturing environment.
-                        </p>
-                    </div>
-
-                    <div class="front-card">
-                        <div class="icon-circle">
-                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M4 5h16v11H4V5zM8 20h8M10 16v4M14 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M10 9l-2 2 2 2M14 9l2 2-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </div>
-                        <h3>Web Development Direction</h3>
-                        <div class="card-divider"></div>
-                        <p>
-                            Building skills in HTML, CSS, GitHub, responsive design, and future software systems for small business use.
-                        </p>
-                    </div>
-
-                    <div class="front-card">
-                        <div class="icon-circle">
-                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M4 19h16M6 17v-5h3v5M11 17V9h3v8M16 17V6h3v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path d="M5 8c4 0 7-1.5 10-5M15 3h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </div>
-                        <h3>Business Improvement Focus</h3>
-                        <div class="card-divider"></div>
-                        <p>
-                            Interested in helping businesses improve their online presence, organize information, reduce operational burdens, and grow with better systems.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="front-contact-strip">
-                <div class="front-contact-item">
-                    <div class="contact-icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
-                            <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <strong>Email</strong>
-                        <a href="mailto:christo.mills2003@gmail.com">christo.mills2003@gmail.com</a>
-                    </div>
-                </div>
-
-                <div class="front-contact-item">
-                    <div class="contact-icon-circle">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M7 4l3 3-2 2c1.3 2.6 3.4 4.7 6 6l2-2 3 3-1.5 3c-.3.6-1 .9-1.7.7C9.9 18.5 5.5 14.1 4.3 8.2c-.1-.7.2-1.4.8-1.7L7 4z" fill="currentColor"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <strong>Phone</strong>
-                        <a href="tel:7065089677">706-508-9677</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills-experience" class="hidden">
-            <h2>Skills & Experience</h2>
-
-            <p class="section-intro">
-                My experience combines hands-on quality control, manufacturing workflow support, process improvement, communication, and self-directed technical learning. These skills shape how I approach both production environments and future web development projects.
-            </p>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Quality Control Lead</h3>
-                    <p>Help manage quality expectations, production numbers, workflow, and process consistency in a custom area rug manufacturing environment.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Leadership & Team Support</h3>
-                    <p>Experience helping guide team workflow, support quality standards, maintain accountability, and assist with daily production needs.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Process Improvement</h3>
-                    <p>Focused on analyzing workflows, identifying inefficiencies, supporting cost-saving improvements, and helping increase production consistency.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Quality Assurance</h3>
-                    <p>Skilled in inspecting work, maintaining standards, identifying defects, and supporting processes that improve final product quality.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Production Support</h3>
-                    <p>Assist in maintaining area workflow, identifying operational issues, and supporting better systems for daily production.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Communication</h3>
-                    <p>Able to work with team members and management to solve problems, improve processes, and keep operations moving efficiently.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Web Development Learning</h3>
-                    <p>Currently building skills in HTML, CSS, JavaScript, GitHub workflow, responsive design, and the foundations of practical digital tools.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Continuous Learning</h3>
-                    <p>Actively building new skills in web development, software development, business operations, and digital strategy.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="portfolio" class="hidden">
-            <h2>Portfolio</h2>
-
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Personal Profile Website</h3>
-
-                    <div class="project-meta">
-                        <span class="project-status">Live Project</span>
-                        <span class="project-updated">Last Updated: May 2026</span>
-                    </div>
-
                     <p>
-                        A live personal profile website built to present my background in quality control, manufacturing process improvement, web development, business systems, and future service direction.
+                        The goal is simple: make your business easier to understand, easier to trust, and easier to contact.
                     </p>
 
-                    <p>
-                        <a href="https://christomills2003-sudo.github.io/ChristopherMiller/" target="_blank" class="project-link">
-                            christomills2003-sudo.github.io/ChristopherMiller/
-                        </a>
-                    </p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="#services">View Services</a>
+                        <button class="btn btn-secondary consult-open" type="button">Request a Consult</button>
+                    </div>
+                </div>
 
-                    <p>
-                        <strong>Built With:</strong> HTML, CSS, JavaScript, SVG, and GitHub Pages.
-                    </p>
-
-                    <div class="language-list">
-                        <span class="language-pill">HTML</span>
-                        <span class="language-pill">CSS</span>
-                        <span class="language-pill">JavaScript</span>
-                        <span class="language-pill">SVG</span>
-                        <span class="language-pill">GitHub Pages</span>
+                <div class="value-panel" aria-label="Primary value points">
+                    <div class="value-item">
+                        <strong>Professional First Impression</strong>
+                        <p>Clean design, direct wording, and structured sections that make the business look legitimate.</p>
+                    </div>
+                    <div class="value-item">
+                        <strong>Mobile-First Customer Flow</strong>
+                        <p>Navigation, buttons, service cards, and contact links built for phones first.</p>
+                    </div>
+                    <div class="value-item">
+                        <strong>Practical Digital Foundation</strong>
+                        <p>A website structure that can grow into booking, tracking, dashboards, and other business tools later.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="services" class="hidden">
-            <h2>Services & Project Direction</h2>
-
+            <h2>Services & Roadmap Board</h2>
             <p class="section-intro">
-                My long-term goal is to build a service focused on helping small businesses improve their digital presence, organize operations, and use practical tools to make better decisions. I want to start with websites and digital structure, then eventually expand into broader business improvement systems.
+                Services are organized from simple digital improvements to larger business systems. Prices are estimates and can change based on scope, content, revisions, and custom features.
             </p>
 
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Small Business Websites</h3>
-                    <p>Building clean, practical websites that help small businesses showcase their services, attract customers, and strengthen their online presence.</p>
+            <div class="service-cta-row">
+                <div>
+                    <h3 style="color: var(--white); margin-bottom: 4px;">Not sure which service fits?</h3>
+                    <p>Start with a consult and I’ll help identify the best first step for your business.</p>
+                </div>
+                <button class="btn btn-primary consult-open" type="button">Book a Free Consult</button>
+            </div>
+
+            <div class="testimonial-strip" aria-label="Client testimonials placeholder">
+                <div class="testimonial-card"><strong>Client testimonial</strong><p>Placeholder for a future client quote.</p></div>
+                <div class="testimonial-card"><strong>Client testimonial</strong><p>Placeholder for a future client quote.</p></div>
+                <div class="testimonial-card"><strong>Client testimonial</strong><p>Placeholder for a future client quote.</p></div>
+            </div>
+
+            <div class="service-board">
+                <article class="service-card entry-card">
+                    <div class="service-topline"><span class="service-level">Entry</span><span class="service-icon" role="img" aria-label="Menu layout icon">☰</span></div>
+                    <h3>Menu Creation</h3>
+                    <div class="service-price"><span class="price-tooltip" tabindex="0" data-tooltip="Cost depends on the number of menu sections, number of items, print/export needs, and whether branding cleanup is included.">Est. $150–$350</span></div>
+                    <p>Clean digital or printable menu layout for restaurants, food trucks, cafés, or small food businesses.</p>
+                    <div class="tag-row"><span class="tag">Help customers read the menu quickly</span><span class="tag">Support ordering on the go</span><span class="tag">Ready for print or digital use</span></div>
+                    <button class="btn btn-primary service-card-action consult-open" type="button" data-service="Menu Creation">Request Quote</button>
+                </article>
+
+                <article class="service-card entry-card">
+                    <div class="service-topline"><span class="service-level">Entry</span><span class="service-icon" role="img" aria-label="Landing page growth icon">↗</span></div>
+                    <h3>Single Landing Page</h3>
+                    <div class="service-price"><span class="price-tooltip" tabindex="0" data-tooltip="Cost depends on content length, custom design needs, form setup, and whether additional sections are needed.">Est. $350–$650</span></div>
+                    <p>A focused page for one offer, service, promotion, event, or customer action.</p>
+                    <div class="tag-row"><span class="tag">Focus visitors on one offer</span><span class="tag">Guide users toward one action</span><span class="tag">Work cleanly on phones</span></div>
+                    <button class="btn btn-primary service-card-action consult-open" type="button" data-service="Single Landing Page">Get Started</button>
+                </article>
+
+                <article class="service-card featured core-card">
+                    <div class="service-topline"><span class="service-level">Core</span><span class="popular-badge">Most Popular</span></div>
+                    <h3>New Business Website</h3>
+                    <div class="service-price"><span class="price-tooltip" tabindex="0" data-tooltip="Higher pricing may apply when extra pages, copywriting, advanced layout work, forms, image editing, or more revision rounds are needed.">Starting at $725</span></div>
+                    <p>A clean starter website for a business that needs a simple, professional online presence and direct contact flow.</p>
+                    <div class="tag-row"><span class="tag">Explain the business clearly</span><span class="tag">Show services with structure</span><span class="tag">Make contact easy</span></div>
+                    <button class="btn btn-primary service-card-action consult-open" type="button" data-service="New Business Website">Get Started</button>
+                </article>
+
+                <article class="service-card core-card">
+                    <div class="service-topline"><span class="service-level">Core</span><span class="service-icon" role="img" aria-label="Website refresh icon">↻</span></div>
+                    <h3>Website Refresh</h3>
+                    <div class="service-price"><span class="price-tooltip" tabindex="0" data-tooltip="Cost depends on how much of the existing site needs restructuring, rewriting, mobile repair, and visual redesign.">Est. $500–$1,200</span></div>
+                    <p>Improve an outdated website with cleaner structure, sharper copy, better mobile compatibility, and stronger calls-to-action.</p>
+                    <div class="tag-row"><span class="tag">Modernize an outdated look</span><span class="tag">Clarify the business message</span><span class="tag">Improve visitor flow</span></div>
+                    <button class="btn btn-primary service-card-action consult-open" type="button" data-service="Website Refresh">Request Quote</button>
+                </article>
+
+                <article class="service-card growth-card">
+                    <div class="service-topline"><span class="service-level">Growth</span><span class="value-badge">Best Value</span></div>
+                    <h3>Multi-Section Business Website</h3>
+                    <div class="service-price"><span class="price-tooltip" tabindex="0" data-tooltip="Cost depends on number of sections/pages, content preparation, branding needs, custom visuals, forms, and launch support.">Est. $1,200–$2,500</span></div>
+                    <p>A more complete business website with stronger brand structure, multiple service sections, and more refined content.</p>
+                    <div class="tag-row"><span class="tag">Give customers more complete answers</span><span class="tag">Present a stronger brand</span><span class="tag">Support a cleaner launch</span></div>
+                    <a class="example-link" href="https://christomills2003-sudo.github.io/ChristopherMiller/" target="_blank" rel="noopener noreferrer">View Example</a>
+                    <button class="btn btn-primary service-card-action consult-open" type="button" data-service="Multi-Section Business Website">Request Quote</button>
+                </article>
+
+                <article class="service-card growth-card">
+                    <div class="service-topline"><span class="service-level">Growth</span><span class="service-icon" role="img" aria-label="Business structure icon">◎</span></div>
+                    <h3>Digital Business Structure</h3>
+                    <div class="service-price"><span class="price-tooltip" tabindex="0" data-tooltip="Cost depends on how much planning, content organization, customer-flow mapping, and platform setup is needed.">Est. $300–$900</span></div>
+                    <p>Organize service information, customer paths, contact methods, online listings, and future digital-system ideas.</p>
+                    <div class="tag-row"><span class="tag">Organize scattered business info</span><span class="tag">Improve customer decision flow</span><span class="tag">Plan for future tools</span></div>
+                    <button class="btn btn-primary service-card-action consult-open" type="button" data-service="Digital Business Structure">Request Quote</button>
+                </article>
+
+                <article class="service-card future-card">
+                    <div class="service-topline"><span class="service-level">Future</span><span class="service-icon" role="img" aria-label="Dashboard board icon">▥</span></div>
+                    <h3>Business Cost-Tracking Board</h3>
+                    <div class="service-price"><span class="price-tooltip" tabindex="0" data-tooltip="Cost depends on dashboard complexity, data inputs, calculations, interface design, and whether a backend or database is required.">Est. $1,500+</span></div>
+                    <p>A future tool direction for tracking expenses, supply costs, sales, labor, production numbers, and operating data.</p>
+                    <div class="tag-row"><span class="tag">See operating numbers faster</span><span class="tag">Track business activity</span><span class="tag">Support better decisions</span></div>
+                    <a class="example-link" href="#" aria-disabled="true">View Example</a>
+                    <button class="btn btn-primary service-card-action consult-open" type="button" data-service="Business Cost-Tracking Board">Discuss Future Build</button>
+                </article>
+
+                <article class="service-card future-card">
+                    <div class="service-topline"><span class="service-level">Future</span><span class="service-icon" role="img" aria-label="Custom tool icon">✦</span></div>
+                    <h3>Custom Business Tools</h3>
+                    <div class="service-price"><span class="price-tooltip" tabindex="0" data-tooltip="Custom tools are priced after reviewing workflow complexity, required features, integrations, and maintenance needs.">Custom Quote</span></div>
+                    <p>Booking flows, forms, simple dashboards, internal pages, or other tools built around a business’s workflow.</p>
+                    <div class="tag-row"><span class="tag">Capture useful information</span><span class="tag">Organize business data</span><span class="tag">Reduce manual steps</span></div>
+                    <button class="btn btn-primary service-card-action consult-open" type="button" data-service="Custom Business Tools">Request Quote</button>
+                </article>
+            </div>
+        </section>
+
+        <section id="process" class="hidden">
+            <h2>Process</h2>
+            <p class="section-intro">
+                A website should be planned before it is built. This process keeps the project focused on what the business actually needs.
+            </p>
+
+            <div class="process-list">
+                <article class="process-step">
+                    <h3>Review</h3>
+                    <p>Start by reviewing the business from the customer’s point of view.</p>
+                    <ul>
+                        <li>Business structure</li>
+                        <li>Current online presence</li>
+                        <li>Services or products offered</li>
+                        <li>Consumer base and service area</li>
+                        <li>Competitor presentation</li>
+                        <li>Main customer action needed</li>
+                    </ul>
+                </article>
+                <article class="process-step">
+                    <h3>Plan</h3>
+                    <p>Outline the page sections, wording, visual direction, calls-to-action, and mobile compatibility.</p>
+                </article>
+                <article class="process-step">
+                    <h3>Build</h3>
+                    <p>Create a clean, responsive website with accessible navigation and practical contact paths.</p>
+                </article>
+                <article class="process-step">
+                    <h3>Review & Launch</h3>
+                    <p>Test the page, adjust the layout, review the finished direction with the customer, make professional refinements, and prepare it for launch.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="about" class="hidden">
+            <div class="about-layout">
+                <div>
+                    <h2>About Miller Digital Works</h2>
+                    <p class="profile-lead">
+                        Miller Digital Works helps small businesses look more professional online with clean websites, organized service pages, direct contact paths, and practical digital structure.
+                    </p>
+                    <p>
+                        The focus is on useful web design: clear layouts, strong mobile usability, simple messaging, and online presentation that supports customer trust.
+                    </p>
+                    <p>
+                        Current work centers on front-end websites and business-facing page design, with future expansion into digital tools for operations, cost tracking, and service management.
+                    </p>
+
+                    <div class="consultant-profile">
+                        <div class="consultant-photo-placeholder" aria-label="Profile image placeholder">Photo</div>
+                        <div>
+                            <h3>Christopher Miller</h3>
+                            <p><strong>Consultant</strong> — small business websites, digital structure, and practical business improvement.</p>
+                        </div>
+                        <button class="btn btn-primary profile-open" type="button" aria-haspopup="dialog">View Profile</button>
+                    </div>
                 </div>
 
-                <div class="info-card">
-                    <h3>Personal Websites</h3>
-                    <p>Creating professional online profiles that help individuals present their skills, story, and goals clearly.</p>
-                </div>
+                <aside class="side-panel" aria-label="Business capabilities">
+                    <h3>Capabilities</h3>
+                    <div class="tag-row">
+                        <span class="tag">Small Business Websites</span>
+                        <span class="tag">Mobile Layouts</span>
+                        <span class="tag">Landing Pages</span>
+                        <span class="tag">Service Pages</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">GitHub Pages</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
 
-                <div class="info-card">
-                    <h3>Digital Branding</h3>
-                    <p>Helping businesses present themselves with clearer messaging, better structure, and a more professional digital image.</p>
-                </div>
+        <section id="faq" class="hidden">
+            <h2>FAQ</h2>
+            <p class="section-intro">
+                Common questions about timelines, hosting, ownership, and what happens after a site is built.
+            </p>
 
-                <div class="info-card">
-                    <h3>Business Systems</h3>
-                    <p>Working toward tools that help businesses track sales, finances, supply costs, employee costs, production numbers, and other critical information.</p>
-                </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>How long does a starter website usually take?</summary>
+                    <p>A simple starter website can often be completed in one to three weeks, depending on how quickly content, images, business details, and feedback are provided.</p>
+                </details>
 
-                <div class="info-card">
-                    <h3>Marketing Support</h3>
-                    <p>Building toward digital marketing strategies and campaigns that help businesses bring more attention to their products, services, and customer offers.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Who owns the website after it is built?</summary>
+                    <p>After final payment, the client owns the completed website files, business content, and domain connected to the project. Miller Digital Works may retain reusable code patterns, design methods, and internal workflow materials used to build the site. Ongoing updates, hosting help, and maintenance can be handled through an optional monthly support plan.</p>
+                </details>
 
-                <div class="info-card">
-                    <h3>Operations Improvement</h3>
-                    <p>Using my manufacturing and process-improvement background to eventually help businesses improve workflow, organization, and daily operations.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Can hosting be handled for me?</summary>
+                    <p>Basic static sites can be launched through simple hosting options such as GitHub Pages or other website hosts. More advanced sites may require paid hosting, domains, forms, or backend services.</p>
+                </details>
 
-                <div class="info-card">
-                    <h3>Small Business Landing Page</h3>
-                    <p>A clean website concept for a local business that needs a simple, professional online presence.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>What do I need to provide before a project starts?</summary>
+                    <p>Helpful materials include your business name, industry, service list, preferred colors, logo or photos if available, contact information, and the main action you want customers to take.</p>
+                </details>
 
-                <div class="info-card">
-                    <h3>Restaurant/Menu Redesign</h3>
-                    <p>A polished and mobile-friendly layout for a family-owned restaurant or food business.</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>Business Cost-Tracking Concept</h3>
-                    <p>A future software concept focused on helping businesses track expenses, supply costs, sales, and operating numbers.</p>
-                </div>
+                <details class="faq-item">
+                    <summary>Can the website be updated later?</summary>
+                    <p>Yes. The site can be updated later with new services, photos, examples, testimonials, pricing changes, or additional pages as the business grows.</p>
+                </details>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-mark">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 21c2.5-4.5 2.5-8.5 0-12.5C9.5 12.5 9.5 16.5 12 21z" fill="currentColor"></path>
-                <path d="M12 21c-4-2-6.5-5-7.5-9.5 4.5.5 7 3.5 7.5 9.5zM12 21c4-2 6.5-5 7.5-9.5-4.5.5-7 3.5-7.5 9.5z" fill="currentColor" opacity="0.75"></path>
-            </svg>
+    <div class="profile-modal" id="consultant-modal" role="dialog" aria-modal="true" aria-labelledby="consultant-modal-title" aria-hidden="true">
+        <div class="profile-modal-card">
+            <button class="modal-close" type="button" aria-label="Close consultant profile">×</button>
+            <h2 id="consultant-modal-title">Christopher Miller | Consultant</h2>
+            <p class="profile-lead">
+                Christopher Miller brings a practical, process-focused background into small business web design and digital structure.
+            </p>
+            <h3>Work Background</h3>
+            <ul>
+                <li>Quality control and production workflow experience</li>
+                <li>Process-improvement mindset built around consistency, clarity, and accountability</li>
+                <li>Front-end website development using HTML, CSS, JavaScript, and GitHub Pages</li>
+            </ul>
+            <h3>Personal Facts</h3>
+            <ul>
+                <li>Interested in history, chess, and birds</li>
+                <li>Focused on continuous learning and practical skill-building</li>
+            </ul>
+            <h3>Business Goal</h3>
+            <div class="quote-box">
+                “My goal is to help small businesses grow by improving how they present themselves online, making customer action easier, and building practical digital systems that support stronger operations over time.”
+            </div>
         </div>
-        <p>&copy; 2026 Christopher Miller. Built with HTML, CSS, and GitHub Pages.</p>
-        <p>
-            <a href="mailto:christo.mills2003@gmail.com">christo.mills2003@gmail.com</a> |
-            <a href="tel:7065089677">706-508-9677</a>
-        </p>
+    </div>
+
+    <div class="consult-modal" id="request-consult-modal" role="dialog" aria-modal="true" aria-labelledby="consult-modal-title" aria-hidden="true">
+        <div class="consult-modal-card">
+            <button class="consult-close" type="button" aria-label="Close consult form">×</button>
+            <h2 id="consult-modal-title">Request a Consult</h2>
+            <p class="form-note">
+                Fill this out and your email app will open with the message ready to send to Miller Digital Works. A static GitHub Pages site cannot send form submissions silently without a backend or form service.
+            </p>
+            <form class="consult-form" id="consult-form">
+                <div class="form-field">
+                    <label for="client-name">Name</label>
+                    <input id="client-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                    <label for="business-industry">Business industry</label>
+                    <input id="business-industry" name="industry" type="text" required>
+                </div>
+                <div class="form-field">
+                    <label for="client-email">Email</label>
+                    <input id="client-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="client-phone">Phone number <span style="font-weight: 600; color: var(--text-muted);">optional</span></label>
+                    <input id="client-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="form-field">
+                    <label for="project-message">Project details</label>
+                    <textarea id="project-message" name="message" placeholder="New site, redesign, menu, landing page, preferred style, or what customers should do next."></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Open Email to Send</button>
+            </form>
+        </div>
+    </div>
+
+    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+
+    <footer>
+        <div class="brand-mark" style="justify-content: center; margin-bottom: 14px;" aria-label="Miller Digital Works logo"><span class="logo-md">MD</span><span class="logo-dash"></span><span class="logo-w">W</span></div>
+        <p>&copy; 2026 Miller Digital Works. Built with HTML, CSS, JavaScript, and GitHub Pages.</p>
+        <p><a href="mailto:MillerDigitalWorks2026@outlook.com">MillerDigitalWorks2026@outlook.com</a></p>
     </footer>
 
     <script>
-        const links = document.querySelectorAll('nav a');
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('#nav-menu');
+        const links = document.querySelectorAll(
+            '.nav-menu a, .hero-actions a[href^="#"], .header-actions a[href^="#"]'
+        );
+        const navLinks = document.querySelectorAll('.nav-menu a');
         const sections = document.querySelectorAll('main section');
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        const profileOpenButton = document.querySelector('.profile-open');
+        const consultantModal = document.querySelector('#consultant-modal');
+        const modalCloseButton = document.querySelector('.modal-close');
+
+        const consultOpenButtons = document.querySelectorAll('.consult-open');
+        const consultModal = document.querySelector('#request-consult-modal');
+        const consultCloseButton = document.querySelector('.consult-close');
+        const consultForm = document.querySelector('#consult-form');
+
+        const introScreen = document.querySelector('.intro-screen');
+
+        function closeMobileMenu() {
+            if (!navMenu || !navToggle) return;
+
+            navMenu.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open navigation menu');
+            document.body.classList.remove('no-scroll');
+        }
 
         function showSection(sectionId) {
             sections.forEach(section => {
                 section.classList.toggle('hidden', section.id !== sectionId);
             });
 
-            document.querySelectorAll('nav a').forEach(link => {
+            navLinks.forEach(link => {
                 link.classList.toggle('active', link.getAttribute('href') === '#' + sectionId);
+            });
+
+            closeMobileMenu();
+
+            const mainContent = document.querySelector('#main-content');
+
+            if (mainContent) {
+                mainContent.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navMenu.classList.toggle('open');
+
+                navToggle.setAttribute('aria-expanded', String(isOpen));
+                navToggle.setAttribute(
+                    'aria-label',
+                    isOpen ? 'Close navigation menu' : 'Open navigation menu'
+                );
+
+                document.body.classList.toggle('no-scroll', isOpen);
             });
         }
 
@@ -856,11 +1803,155 @@
 
                 if (href && href.startsWith('#')) {
                     event.preventDefault();
+
                     const target = href.substring(1);
                     showSection(target);
                 }
             });
         });
+
+        function openConsultantModal() {
+            if (!consultantModal || !modalCloseButton) return;
+
+            consultantModal.classList.add('open');
+            consultantModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('no-scroll');
+            modalCloseButton.focus();
+        }
+
+        function closeConsultantModal() {
+            if (!consultantModal) return;
+
+            consultantModal.classList.remove('open');
+            consultantModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('no-scroll');
+        }
+
+        function openConsultModal(serviceName = '') {
+            if (!consultModal) return;
+
+            consultModal.classList.add('open');
+            consultModal.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('no-scroll');
+
+            const messageInput = document.querySelector('#project-message');
+            if (serviceName && messageInput && !messageInput.value.trim()) {
+                messageInput.value = 'I am interested in: ' + serviceName + '.';
+            }
+
+            const nameInput = document.querySelector('#client-name');
+
+            if (nameInput) {
+                nameInput.focus();
+            }
+        }
+
+        function closeConsultModal() {
+            if (!consultModal) return;
+
+            consultModal.classList.remove('open');
+            consultModal.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('no-scroll');
+        }
+
+        if (profileOpenButton) {
+            profileOpenButton.addEventListener('click', openConsultantModal);
+        }
+
+        if (modalCloseButton) {
+            modalCloseButton.addEventListener('click', closeConsultantModal);
+        }
+
+        if (consultantModal) {
+            consultantModal.addEventListener('click', event => {
+                if (event.target === consultantModal) {
+                    closeConsultantModal();
+                }
+            });
+        }
+
+        consultOpenButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                openConsultModal(button.dataset.service || '');
+            });
+        });
+
+        if (consultCloseButton) {
+            consultCloseButton.addEventListener('click', closeConsultModal);
+        }
+
+        if (consultModal) {
+            consultModal.addEventListener('click', event => {
+                if (event.target === consultModal) {
+                    closeConsultModal();
+                }
+            });
+        }
+
+        if (consultForm) {
+            consultForm.addEventListener('submit', event => {
+                event.preventDefault();
+
+                const name = document.querySelector('#client-name').value.trim();
+                const industry = document.querySelector('#business-industry').value.trim();
+                const email = document.querySelector('#client-email').value.trim();
+                const phone = document.querySelector('#client-phone').value.trim() || 'Not provided';
+                const message =
+                    document.querySelector('#project-message').value.trim() ||
+                    'No additional details provided.';
+
+                const subject = encodeURIComponent('Consult Request from ' + name);
+
+                const body = encodeURIComponent(
+                    'Name: ' + name + '\n' +
+                    'Business Industry: ' + industry + '\n' +
+                    'Email: ' + email + '\n' +
+                    'Phone: ' + phone + '\n\n' +
+                    'Project Details:\n' + message
+                );
+
+                window.location.href =
+                    'mailto:MillerDigitalWorks2026@outlook.com?subject=' +
+                    subject +
+                    '&body=' +
+                    body;
+            });
+        }
+
+        if (introScreen) {
+            setTimeout(() => {
+                introScreen.remove();
+            }, 1700);
+        }
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
+                closeMobileMenu();
+                closeConsultantModal();
+                closeConsultModal();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 760) {
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            if (!backToTopButton) return;
+
+            backToTopButton.classList.toggle('visible', window.scrollY > 500);
+        });
+
+        if (backToTopButton) {
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     </script>
 </body>
 </html>
