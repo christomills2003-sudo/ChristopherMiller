@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christopher Miller</title>
+
     <style>
         * {
             margin: 0;
@@ -11,39 +12,49 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f3ebdc;
-            color: #2f2a1f;
+            background: #f4eddf;
+            color: #2f2417;
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, #556b2f 0%, #8b6b3a 100%);
+            background: linear-gradient(135deg, #4f642b 0%, #6f6634 45%, #7a6336 100%);
             color: #ffffff;
-            padding: 40px 20px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
-            border-bottom: 4px solid #5b4428;
+            padding: 30px 20px;
+            box-shadow: 0 4px 18px rgba(47, 36, 23, 0.22);
+            border-bottom: 5px solid #5b3a23;
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1180px;
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 30px;
+            gap: 34px;
         }
 
         .profile-image {
-            width: 170px;
-            height: 170px;
+            width: 145px;
+            height: 145px;
             border-radius: 50%;
             border: 5px solid #8b5e3c;
             overflow: hidden;
-            background: #f3ebdc;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            background: #f4eddf;
+            box-shadow: 0 10px 24px rgba(47, 36, 23, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.04);
+            box-shadow: 0 14px 30px rgba(47, 36, 23, 0.34);
         }
 
         .profile-image img {
@@ -53,100 +64,93 @@
         }
 
         .profile-info {
-            max-width: 680px;
+            max-width: 760px;
             text-align: center;
         }
 
         .profile-info h1 {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            font-size: 3rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 2.75rem;
             margin-bottom: 12px;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: #f5efd8;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+            color: #f8f1da;
+            text-shadow: 1px 2px 3px rgba(47, 36, 23, 0.35);
         }
 
         .profile-info p {
-            font-size: 1.05rem;
-            opacity: 0.95;
-            margin-bottom: 10px;
-            color: #f1f0e8;
+            font-size: 1.08rem;
+            opacity: 0.98;
+            margin-bottom: 8px;
+            color: #f3ead1;
+        }
+
+        .profile-info .tagline {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px 16px;
+            border: 1px solid rgba(248, 241, 218, 0.45);
+            border-radius: 999px;
+            background: rgba(47, 36, 23, 0.18);
+            color: #fff8e8;
+            font-weight: 600;
         }
 
         nav {
-            background-color: #d4d2b2;
+            background-color: #d8d2b0;
             border-top: 2px solid #8b5e3c;
             border-bottom: 2px solid #8b5e3c;
-            margin-top: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         nav ul {
-            max-width: 1200px;
+            max-width: 1180px;
             margin: 0 auto;
+            padding: 14px 16px;
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
+            gap: 14px;
             list-style: none;
-        }
-
-        nav li {
-            margin: 10px;
-        }
-
-        nav li[style*="margin-left: auto"] {
-            flex-grow: 1;
         }
 
         nav a {
             display: block;
-            padding: 14px 22px;
-            color: #422f1b;
+            padding: 11px 19px;
+            color: #2f2417;
             text-decoration: none;
             border: 2px solid #7a4f2f;
             border-radius: 999px;
-            background: #f3ead1;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-            font-weight: 600;
+            background: #f6edd9;
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            font-weight: 700;
         }
 
         nav a:hover,
         nav a:focus {
-            background-color: #e7dcc1;
+            background-color: #eadcc0;
             transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(47, 36, 23, 0.14);
         }
 
         nav a.active {
-            background-color: #d8c9aa;
-            border-color: #5b4428;
-            color: #2f2417;
-            box-shadow: inset 0 0 0 2px rgba(91, 68, 40, 0.35);
-        }
-
-        nav a.future-tab {
-            border-color: #c9b598;
-            background: #f9f6f0;
-            color: #5c4a3a;
-        }
-
-        nav a.future-tab:hover {
-            background-color: #f3ead1;
-        }
-
-        nav a.future-tab.active {
-            background-color: #ebe0d1;
-            border-color: #b59870;
-            color: #3d3228;
+            background-color: #556b2f;
+            border-color: #425322;
+            color: #ffffff;
+            box-shadow: 0 6px 14px rgba(47, 36, 23, 0.18);
         }
 
         main {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 28px;
-            background: #f5ead5;
+            max-width: 1220px;
+            margin: 24px auto 18px auto;
+            padding: 24px;
+            background: #f7eedb;
             border: 1px solid #b59870;
-            border-radius: 18px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 14px 34px rgba(47, 36, 23, 0.10);
         }
 
         .hidden {
@@ -155,54 +159,401 @@
 
         main section {
             margin-bottom: 28px;
-            padding: 18px 20px;
+            padding: 28px;
             background: #efe3cb;
             border: 1px solid #d0b38b;
-            border-radius: 14px;
+            border-radius: 16px;
+            animation: fadeIn 0.25s ease;
         }
 
-        main h2 {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            font-size: 1.7rem;
-            color: #4b3d24;
-            margin-bottom: 12px;
+        main section:last-child {
+            margin-bottom: 0;
         }
 
-        main p {
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 2.15rem;
+            color: #3b2d1e;
+            margin-bottom: 14px;
+        }
+
+        p {
             font-size: 1.05rem;
             color: #3c3328;
             margin-bottom: 14px;
         }
 
-        main p:last-child {
+        p:last-child {
             margin-bottom: 0;
         }
 
+        .front-page {
+            background: linear-gradient(180deg, #fbf7ef 0%, #f4ead4 100%);
+            border: 1px solid #c5a87e;
+            padding: 26px;
+        }
+
+        .front-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .front-copy {
+            padding: 10px 0;
+        }
+
+        .front-intro {
+            max-width: 620px;
+            font-size: 1.08rem;
+            color: #33281b;
+        }
+
+        .front-highlight {
+            margin-top: 24px;
+            padding: 18px 20px;
+            background: rgba(248, 239, 217, 0.85);
+            border-left: 5px solid #556b2f;
+            border-radius: 12px;
+            box-shadow: 0 8px 18px rgba(47, 36, 23, 0.08);
+        }
+
+        .front-highlight p {
+            font-size: 1.03rem;
+            font-style: italic;
+            color: #304122;
+            font-weight: 600;
+        }
+
+        .personal-note {
+            margin-top: 20px;
+            padding: 16px 18px;
+            background: #f6edd9;
+            border: 1px solid #d3bd99;
+            border-radius: 12px;
+        }
+
+        .personal-note strong {
+            color: #3b2d1e;
+        }
+
+        .front-card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .front-card,
+        .info-card {
+            background: #fbf7ef;
+            border: 1px solid #d3bd99;
+            border-radius: 16px;
+            padding: 22px 18px;
+            box-shadow: 0 8px 20px rgba(47, 36, 23, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .front-card {
+            text-align: center;
+            min-height: 310px;
+        }
+
+        .front-card:hover,
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: #8b5e3c;
+            box-shadow: 0 12px 24px rgba(47, 36, 23, 0.15);
+        }
+
+        .icon-circle {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 16px auto;
+            border-radius: 50%;
+            background: #e8e7cf;
+            border: 2px solid #d7c6a5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.24);
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            color: #556b2f;
+        }
+
+        .front-card h3,
+        .info-card h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #2f2417;
+            margin-bottom: 12px;
+            font-size: 1.22rem;
+            line-height: 1.25;
+        }
+
+        .card-divider {
+            width: 38px;
+            height: 4px;
+            background: #7a4f2f;
+            border-radius: 999px;
+            margin: 0 auto 16px auto;
+        }
+
+        .front-card p,
+        .info-card p {
+            font-size: 0.98rem;
+            margin-bottom: 0;
+        }
+
+        .front-contact-strip {
+            margin-top: 22px;
+            padding: 18px 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            background: #f6edd9;
+            border: 2px solid #b59870;
+            border-radius: 14px;
+            box-shadow: 0 8px 18px rgba(47, 36, 23, 0.08);
+        }
+
+        .front-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 6px 10px;
+            border-right: 1px solid #b59870;
+        }
+
+        .front-contact-item:last-child {
+            border-right: none;
+        }
+
+        .contact-icon-circle {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 50%;
+            background: #556b2f;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 14px rgba(47, 36, 23, 0.16);
+        }
+
+        .contact-icon-circle svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .front-contact-item strong {
+            display: block;
+            color: #2f2417;
+            font-size: 1rem;
+        }
+
+        .front-contact-item a {
+            color: #3c3328;
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        .front-contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .section-intro {
+            max-width: 900px;
+            margin-bottom: 18px;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .project-status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #556b2f;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            border: 1px solid #425322;
+        }
+
+        .project-updated {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #e8e7cf;
+            color: #3c3328;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid #cbb28d;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 4px;
+            margin-bottom: 12px;
+            word-break: break-word;
+        }
+
+        .language-list {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .language-pill {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #f6edd9;
+            border: 1px solid #cbb28d;
+            color: #2f2417;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        a {
+            color: #5b4428;
+            font-weight: 700;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #33281b 0%, #5b4428 100%);
+            color: #f8f1da;
+            text-align: center;
+            padding: 26px 18px;
+            margin-top: 18px;
+            border-top: 4px solid #7a4f2f;
+        }
+
+        .footer-mark {
+            color: #d7c087;
+            margin-bottom: 8px;
+        }
+
+        .footer-mark svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        footer p {
+            color: #f8f1da;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #fff8e8;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        @media (max-width: 980px) {
+            .front-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .front-card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .front-card {
+                min-height: auto;
+            }
+
+            .front-contact-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .front-contact-item {
+                border-right: none;
+                border-bottom: 1px solid #b59870;
+                padding: 10px 4px;
+            }
+
+            .front-contact-item:last-child {
+                border-bottom: none;
+            }
+        }
+
         @media (max-width: 768px) {
+            header {
+                padding: 26px 18px;
+            }
+
             .header-container {
                 flex-direction: column;
                 text-align: center;
+                gap: 20px;
             }
 
             .profile-info h1 {
-                font-size: 2.4rem;
+                font-size: 2.05rem;
             }
 
             .profile-image {
+                width: 125px;
+                height: 125px;
                 margin: 0 auto;
             }
 
             nav ul {
                 justify-content: center;
+                gap: 10px;
+                padding: 12px;
             }
 
-            nav li[style*="margin-left: auto"] {
-                display: none;
+            nav a {
+                padding: 10px 16px;
+                font-size: 0.95rem;
             }
 
             main {
-                margin: 24px 12px;
-                padding: 18px;
+                margin: 18px 10px;
+                padding: 14px;
+            }
+
+            main section {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.75rem;
             }
         }
     </style>
@@ -218,171 +569,272 @@
             <div class="profile-info">
                 <h1>Christopher Miller</h1>
                 <p>Quality Control Lead</p>
-                <p>Manufacturing | Process Improvement | Web Development</p>
+                <p class="tagline">Manufacturing | Process Improvement | Web Development</p>
             </div>
         </div>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#welcome" class="active">Home</a></li>
+            <li><a href="#skills-experience">Skills & Experience</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li style="margin-left: auto;"></li>
-            <li><a href="#learning" class="future-tab">Currently Learning</a></li>
-            <li><a href="#services" class="future-tab">Services I'm Building</a></li>
+            <li><a href="#services">Services</a></li>
         </ul>
     </nav>
     
     <main>
-        <section id="welcome">
-            <h2>Welcome</h2>
-            <p>
-                Welcome to my personal profile website. Use the selections above to learn more about my background, skills, experience, current learning path, and long-term professional goals.
-            </p>
+        <section id="welcome" class="front-page">
+            <div class="front-layout">
+                <div class="front-copy">
+                    <h2>Professional Profile</h2>
+
+                    <p class="front-intro">
+                        I’m Christopher Miller, a Quality Control Lead in custom area rug manufacturing with a growing focus in web development, business systems, and digital growth for small businesses.
+                    </p>
+
+                    <div class="front-highlight">
+                        <p>
+                            My background in manufacturing has shaped the way I approach work: with attention to detail, process improvement, accountability, and practical problem-solving. I’m now applying that same mindset to web development, with the goal of creating useful websites and digital tools that help businesses operate more clearly and efficiently.
+                        </p>
+                    </div>
+
+                    <div class="personal-note">
+                        <p>
+                            <strong>Personal Interests:</strong> Outside of work and web development, I enjoy history, chess, books, philosophical debates, and birds. These interests keep me curious and help sharpen how I think, learn, and solve problems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="front-card-grid">
+                    <div class="front-card">
+                        <div class="icon-circle">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M3 20V9l5 3V9l5 3V5h5v15H3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                                <path d="M6 17h2M11 17h2M16 17h2M16 8h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                            </svg>
+                        </div>
+                        <h3>Manufacturing Background</h3>
+                        <div class="card-divider"></div>
+                        <p>
+                            Experience supporting quality expectations, production numbers, workflow consistency, and process improvement in a custom manufacturing environment.
+                        </p>
+                    </div>
+
+                    <div class="front-card">
+                        <div class="icon-circle">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M4 5h16v11H4V5zM8 20h8M10 16v4M14 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M10 9l-2 2 2 2M14 9l2 2-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <h3>Web Development Direction</h3>
+                        <div class="card-divider"></div>
+                        <p>
+                            Building skills in HTML, CSS, GitHub, responsive design, and future software systems for small business use.
+                        </p>
+                    </div>
+
+                    <div class="front-card">
+                        <div class="icon-circle">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M4 19h16M6 17v-5h3v5M11 17V9h3v8M16 17V6h3v11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M5 8c4 0 7-1.5 10-5M15 3h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <h3>Business Improvement Focus</h3>
+                        <div class="card-divider"></div>
+                        <p>
+                            Interested in helping businesses improve their online presence, organize information, reduce operational burdens, and grow with better systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="front-contact-strip">
+                <div class="front-contact-item">
+                    <div class="contact-icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                            <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Email</strong>
+                        <a href="mailto:christo.mills2003@gmail.com">christo.mills2003@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="front-contact-item">
+                    <div class="contact-icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M7 4l3 3-2 2c1.3 2.6 3.4 4.7 6 6l2-2 3 3-1.5 3c-.3.6-1 .9-1.7.7C9.9 18.5 5.5 14.1 4.3 8.2c-.1-.7.2-1.4.8-1.7L7 4z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Phone</strong>
+                        <a href="tel:7065089677">706-508-9677</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="about" class="hidden">
-            <h2>About</h2>
+        <section id="skills-experience" class="hidden">
+            <h2>Skills & Experience</h2>
 
-            <p>
-                <strong>Current Role:</strong> I work in a custom area rug manufacturing plant as a Quality Control Lead, where I help manage quality expectations, production numbers, area workflow, and process consistency. My role involves working with management to improve operations through better quality assurance, production efficiency, cost-saving processes, and workflow improvements.
-            </p>
-            
-            <p>
-                <strong>Web Development Goals:</strong> I am currently learning web development with the goal of helping small businesses build a stronger and more personalized online presence. I want to create websites and digital tools that reflect each business's services, atmosphere, goals, and standards while helping owners reduce the burden of managing operations, customer communication, marketing, sales, scheduling, and growth all at once.
-            </p>
-            
-            <p>
-                <strong>Long-Term Vision:</strong> As I continue growing in web and software development, I hope to build systems that help businesses track finances, sales, supply costs, employee costs, production numbers, and other important operational information. Long term, I am working toward building my own business focused on helping other businesses grow, improve, and operate more efficiently.
-            </p>
-            
-            <p>
-                <strong>Personal Philosophy:</strong> I have a strong interest in history, especially ancient battles, military tactics, and geopolitical events. I enjoy learning how leadership, strategy, and decision-making shaped major outcomes throughout history. I consider myself someone who is always learning, always improving, and always looking for ways to build better habits, sharpen my mindset, and grow in every area of life.
-            </p>
-        </section>
-
-        <section id="skills" class="hidden">
-            <h2>Skills</h2>
-
-            <p>
-                <strong>Leadership & Team Management</strong> - Experience helping guide team workflow, support quality expectations, and maintain accountability in a production environment.
+            <p class="section-intro">
+                My experience combines hands-on quality control, manufacturing workflow support, process improvement, communication, and self-directed technical learning. These skills shape how I approach both production environments and future web development projects.
             </p>
 
-            <p>
-                <strong>Process Improvement</strong> - Focused on analyzing workflows, identifying inefficiencies, supporting cost-saving improvements, and helping increase production consistency.
-            </p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Quality Control Lead</h3>
+                    <p>Help manage quality expectations, production numbers, workflow, and process consistency in a custom area rug manufacturing environment.</p>
+                </div>
 
-            <p>
-                <strong>Quality Assurance</strong> - Skilled in inspecting work, maintaining standards, identifying defects, and supporting processes that improve final product quality.
-            </p>
+                <div class="info-card">
+                    <h3>Leadership & Team Support</h3>
+                    <p>Experience helping guide team workflow, support quality standards, maintain accountability, and assist with daily production needs.</p>
+                </div>
 
-            <p>
-                <strong>Communication & Collaboration</strong> - Able to work with team members and management to solve problems, improve processes, and keep operations moving efficiently.
-            </p>
+                <div class="info-card">
+                    <h3>Process Improvement</h3>
+                    <p>Focused on analyzing workflows, identifying inefficiencies, supporting cost-saving improvements, and helping increase production consistency.</p>
+                </div>
 
-            <p>
-                <strong>Continuous Learning</strong> - Actively building new skills in web development, software development, business operations, and digital strategy.
-            </p>
-        </section>
+                <div class="info-card">
+                    <h3>Quality Assurance</h3>
+                    <p>Skilled in inspecting work, maintaining standards, identifying defects, and supporting processes that improve final product quality.</p>
+                </div>
 
-        <section id="experience" class="hidden">
-            <h2>Experience</h2>
+                <div class="info-card">
+                    <h3>Production Support</h3>
+                    <p>Assist in maintaining area workflow, identifying operational issues, and supporting better systems for daily production.</p>
+                </div>
 
-            <p>
-                <strong>Quality Control Lead</strong> - Help manage quality expectations, production numbers, workflow, and process consistency in a custom area rug manufacturing environment.
-            </p>
+                <div class="info-card">
+                    <h3>Communication</h3>
+                    <p>Able to work with team members and management to solve problems, improve processes, and keep operations moving efficiently.</p>
+                </div>
 
-            <p>
-                <strong>Process Improvement</strong> - Work with management to support improvements that help reduce unnecessary costs, improve production efficiency, and strengthen quality assurance.
-            </p>
+                <div class="info-card">
+                    <h3>Web Development Learning</h3>
+                    <p>Currently building skills in HTML, CSS, JavaScript, GitHub workflow, responsive design, and the foundations of practical digital tools.</p>
+                </div>
 
-            <p>
-                <strong>Production Support</strong> - Assist in maintaining area workflow, identifying operational issues, and supporting better systems for daily production.
-            </p>
-
-            <p>
-                <strong>Self-Directed Learning</strong> - Currently learning web development, GitHub workflow, responsive design, and the foundations of building practical digital tools.
-            </p>
-        </section>
-
-        <section id="learning" class="hidden">
-            <h2>Currently Learning</h2>
-
-            <p>
-                <strong>HTML and CSS Fundamentals</strong> - Building a strong foundation in website structure, styling, and clean page layouts.
-            </p>
-
-            <p>
-                <strong>Git and GitHub Workflow</strong> - Learning how to manage code, update projects, publish websites, and track changes properly.
-            </p>
-
-            <p>
-                <strong>Responsive Website Design</strong> - Developing websites that work smoothly across phones, tablets, laptops, and desktop screens.
-            </p>
-
-            <p>
-                <strong>Basic JavaScript</strong> - Learning how to add interactivity, logic, and better user experiences to websites.
-            </p>
-
-            <p>
-                <strong>Portfolio Projects</strong> - Building real projects to strengthen my skills and create examples of my work.
-            </p>
-        </section>
-
-        <section id="services" class="hidden">
-            <h2>Services I'm Building Toward</h2>
-
-            <p>
-                <strong>Personal Websites</strong> - Creating professional online profiles that help individuals present their skills, story, and goals clearly.
-            </p>
-
-            <p>
-                <strong>Small Business Websites</strong> - Building clean, practical websites that help small businesses showcase their services, attract customers, and strengthen their online presence.
-            </p>
-
-            <p>
-                <strong>Digital Branding</strong> - Helping businesses present themselves with clearer messaging, better structure, and a more professional digital image.
-            </p>
-
-            <p>
-                <strong>Business Systems</strong> - Working toward building tools that help businesses track important information such as sales, finances, supply costs, employee costs, and production numbers.
-            </p>
-
-            <p>
-                <strong>Marketing Support</strong> - Building toward digital marketing strategies and campaigns that help businesses bring more attention to their products, services, and customer offers.
-            </p>
+                <div class="info-card">
+                    <h3>Continuous Learning</h3>
+                    <p>Actively building new skills in web development, software development, business operations, and digital strategy.</p>
+                </div>
+            </div>
         </section>
 
         <section id="portfolio" class="hidden">
             <h2>Portfolio</h2>
 
-            <p>
-                <strong>Personal Profile Website</strong> - A personal website built with HTML, CSS, and GitHub Pages to practice web development and create an online professional presence.
-            </p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Personal Profile Website</h3>
 
-            <p>
-                <strong>More Projects Coming Soon</strong> - Future projects will include small business landing pages, portfolio pages, menu designs, and practical tools for business operations.
-            </p>
+                    <div class="project-meta">
+                        <span class="project-status">Live Project</span>
+                        <span class="project-updated">Last Updated: May 2026</span>
+                    </div>
+
+                    <p>
+                        A live personal profile website built to present my background in quality control, manufacturing process improvement, web development, business systems, and future service direction.
+                    </p>
+
+                    <p>
+                        <a href="https://christomills2003-sudo.github.io/ChristopherMiller/" target="_blank" class="project-link">
+                            christomills2003-sudo.github.io/ChristopherMiller/
+                        </a>
+                    </p>
+
+                    <p>
+                        <strong>Built With:</strong> HTML, CSS, JavaScript, SVG, and GitHub Pages.
+                    </p>
+
+                    <div class="language-list">
+                        <span class="language-pill">HTML</span>
+                        <span class="language-pill">CSS</span>
+                        <span class="language-pill">JavaScript</span>
+                        <span class="language-pill">SVG</span>
+                        <span class="language-pill">GitHub Pages</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="contact" class="hidden">
-            <h2>Contact</h2>
+        <section id="services" class="hidden">
+            <h2>Services & Project Direction</h2>
 
-            <p>
-                Interested in connecting, collaborating, or discussing future projects? Reach out to connect.
+            <p class="section-intro">
+                My long-term goal is to build a service focused on helping small businesses improve their digital presence, organize operations, and use practical tools to make better decisions. I want to start with websites and digital structure, then eventually expand into broader business improvement systems.
             </p>
 
-            <p>
-                <strong>GitHub:</strong> 
-                <a href="https://github.com/christomills2003-sudo" target="_blank">
-                    github.com/christomills2003-sudo
-                </a>
-            </p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Small Business Websites</h3>
+                    <p>Building clean, practical websites that help small businesses showcase their services, attract customers, and strengthen their online presence.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Personal Websites</h3>
+                    <p>Creating professional online profiles that help individuals present their skills, story, and goals clearly.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Digital Branding</h3>
+                    <p>Helping businesses present themselves with clearer messaging, better structure, and a more professional digital image.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Business Systems</h3>
+                    <p>Working toward tools that help businesses track sales, finances, supply costs, employee costs, production numbers, and other critical information.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Marketing Support</h3>
+                    <p>Building toward digital marketing strategies and campaigns that help businesses bring more attention to their products, services, and customer offers.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Operations Improvement</h3>
+                    <p>Using my manufacturing and process-improvement background to eventually help businesses improve workflow, organization, and daily operations.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Small Business Landing Page</h3>
+                    <p>A clean website concept for a local business that needs a simple, professional online presence.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Restaurant/Menu Redesign</h3>
+                    <p>A polished and mobile-friendly layout for a family-owned restaurant or food business.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Business Cost-Tracking Concept</h3>
+                    <p>A future software concept focused on helping businesses track expenses, supply costs, sales, and operating numbers.</p>
+                </div>
+            </div>
         </section>
     </main>
+
+    <footer>
+        <div class="footer-mark">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21c2.5-4.5 2.5-8.5 0-12.5C9.5 12.5 9.5 16.5 12 21z" fill="currentColor"></path>
+                <path d="M12 21c-4-2-6.5-5-7.5-9.5 4.5.5 7 3.5 7.5 9.5zM12 21c4-2 6.5-5 7.5-9.5-4.5.5-7 3.5-7.5 9.5z" fill="currentColor" opacity="0.75"></path>
+            </svg>
+        </div>
+        <p>&copy; 2026 Christopher Miller. Built with HTML, CSS, and GitHub Pages.</p>
+        <p>
+            <a href="mailto:christo.mills2003@gmail.com">christo.mills2003@gmail.com</a> |
+            <a href="tel:7065089677">706-508-9677</a>
+        </p>
+    </footer>
 
     <script>
         const links = document.querySelectorAll('nav a');
@@ -393,16 +845,20 @@
                 section.classList.toggle('hidden', section.id !== sectionId);
             });
 
-            links.forEach(link => {
+            document.querySelectorAll('nav a').forEach(link => {
                 link.classList.toggle('active', link.getAttribute('href') === '#' + sectionId);
             });
         }
 
         links.forEach(link => {
             link.addEventListener('click', event => {
-                event.preventDefault();
-                const target = link.getAttribute('href').substring(1);
-                showSection(target);
+                const href = link.getAttribute('href');
+
+                if (href && href.startsWith('#')) {
+                    event.preventDefault();
+                    const target = href.substring(1);
+                    showSection(target);
+                }
             });
         });
     </script>
