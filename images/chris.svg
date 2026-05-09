@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <rect width="150" height="150" rx="20" ry="20" fill="#667eea"/>
+  <circle cx="75" cy="55" r="30" fill="#ffffff" opacity="0.9"/>
+  <rect x="30" y="95" width="90" height="30" rx="10" ry="10" fill="#ffffff" opacity="0.9"/>
+  <text x="75" y="103" font-family="Arial, sans-serif" font-size="14" fill="#333333" text-anchor="middle">Chris Miller</text>
+</svg>
